@@ -15,6 +15,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.innovacode_proyecto1.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Register : AppCompatActivity() {
 
@@ -32,6 +34,10 @@ class Register : AppCompatActivity() {
     private lateinit var btnCancelar: Button
     private lateinit var tvIniciarSesion: TextView
 
+    // ── Firebase ──────────────────────────────────────────────────────────────
+    private lateinit var auth: FirebaseAuth
+    private lateinit var db: FirebaseFirestore
+
     // ── Estado ────────────────────────────────────────────────────────────────
     private var contrasenaVisible          = false
     private var confirmarContrasenaVisible = false
@@ -42,6 +48,10 @@ class Register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         window.statusBarColor = resources.getColor(android.R.color.black, null)
+
+        // Inicializar Firebase
+        auth = FirebaseAuth.getInstance()
+        db   = FirebaseFirestore.getInstance()
 
         inicializarVistas()
         configurarSpinner()
@@ -85,10 +95,8 @@ class Register : AppCompatActivity() {
                 val vista = super.getView(position, convertView, parent)
                 val tv = vista.findViewById<TextView>(android.R.id.text1)
                 tv.setTextColor(
-                    if (position == 0)
-                        resources.getColor(android.R.color.darker_gray, null)
-                    else
-                        resources.getColor(android.R.color.white, null)
+                    if (position == 0) resources.getColor(android.R.color.darker_gray, null)
+                    else resources.getColor(android.R.color.white, null)
                 )
                 tv.textSize = 14f
                 return vista
@@ -100,10 +108,8 @@ class Register : AppCompatActivity() {
                 val vista = super.getDropDownView(position, convertView, parent)
                 val tv = vista.findViewById<TextView>(android.R.id.text1)
                 tv.setTextColor(
-                    if (position == 0)
-                        resources.getColor(android.R.color.darker_gray, null)
-                    else
-                        resources.getColor(android.R.color.white, null)
+                    if (position == 0) resources.getColor(android.R.color.darker_gray, null)
+                    else resources.getColor(android.R.color.white, null)
                 )
                 tv.setPadding(24, 20, 24, 20)
                 tv.textSize = 14f
@@ -138,21 +144,82 @@ class Register : AppCompatActivity() {
             val confirmar  = etConfirmarContrasena.text.toString().trim()
 
             if (validarCampos(nombre, tipoDoc, numDoc, telefono, correo, contrasena, confirmar)) {
-                crearCuenta(nombre, numDoc, telefono, correo, contrasena)
+                registrarEnFirebase(nombre, tipoDoc, numDoc, telefono, correo, contrasena)
             }
         }
 
-        btnCancelar.setOnClickListener {
-            finish()
-        }
+        btnCancelar.setOnClickListener { finish() }
 
-        // ¿Ya tienes cuenta? → Ir al Login
         tvIniciarSesion.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
         }
+    }
+
+    // ── Registro en Firebase ──────────────────────────────────────────────────
+    private fun registrarEnFirebase(
+        nombre: String,
+        tipoDoc: Int,
+        numDoc: String,
+        telefono: String,
+        correo: String,
+        contrasena: String
+    ) {
+        // Deshabilitar botón mientras procesa
+        btnCrearCuenta.isEnabled = false
+        btnCrearCuenta.text = "Creando cuenta..."
+
+        // 1. Crear usuario en Firebase Authentication
+        auth.createUserWithEmailAndPassword(correo, contrasena)
+            .addOnSuccessListener { resultado ->
+                val uid = resultado.user?.uid ?: return@addOnSuccessListener
+
+                // 2. Guardar datos adicionales en Firestore
+                val tipoDocNombre = spinnerTipoDocumento.getItemAtPosition(tipoDoc).toString()
+
+                val datosUsuario = hashMapOf(
+                    "uid"             to uid,
+                    "nombre"          to nombre,
+                    "tipoDocumento"   to tipoDocNombre,
+                    "numeroDocumento" to numDoc,
+                    "telefono"        to telefono,
+                    "correo"          to correo,
+                    "fechaRegistro"   to com.google.firebase.Timestamp.now()
+                )
+
+                db.collection("usuarios")
+                    .document(uid)
+                    .set(datosUsuario)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "¡Cuenta creada exitosamente!", Toast.LENGTH_SHORT).show()
+                        // Ir al Login después del registro
+                        val intent = Intent(this, Login::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        startActivity(intent)
+                        finish()
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(this, "Error al guardar datos: ${e.message}", Toast.LENGTH_LONG).show()
+                        btnCrearCuenta.isEnabled = true
+                        btnCrearCuenta.text = "Crear Cuenta"
+                    }
+            }
+            .addOnFailureListener { e ->
+                val mensaje = when {
+                    e.message?.contains("email address is already in use") == true ->
+                        "Este correo ya está registrado"
+                    e.message?.contains("badly formatted") == true ->
+                        "El correo no tiene un formato válido"
+                    e.message?.contains("password is invalid") == true ->
+                        "La contraseña debe tener al menos 6 caracteres"
+                    else -> "Error: ${e.message}"
+                }
+                Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+                btnCrearCuenta.isEnabled = true
+                btnCrearCuenta.text = "Crear Cuenta"
+            }
     }
 
     // ── Alternar visibilidad ──────────────────────────────────────────────────
@@ -189,7 +256,7 @@ class Register : AppCompatActivity() {
                 etNumeroDocumento.error = "Ingresa tu número de documento"
                 etNumeroDocumento.requestFocus(); return false
             }
-            numDoc.length < 5 -> {
+            numDoc.length < 10 -> {
                 etNumeroDocumento.error = "Número de documento inválido"
                 etNumeroDocumento.requestFocus(); return false
             }
@@ -197,7 +264,7 @@ class Register : AppCompatActivity() {
                 etTelefono.error = "Ingresa tu número de teléfono"
                 etTelefono.requestFocus(); return false
             }
-            telefono.length < 7 -> {
+            telefono.length < 10 -> {
                 etTelefono.error = "Número de teléfono inválido"
                 etTelefono.requestFocus(); return false
             }
@@ -227,19 +294,5 @@ class Register : AppCompatActivity() {
             }
         }
         return true
-    }
-
-    // ── Crear cuenta ──────────────────────────────────────────────────────────
-    private fun crearCuenta(
-        nombre: String, numDoc: String,
-        telefono: String, correo: String, contrasena: String
-    ) {
-        Toast.makeText(this, "¡Cuenta creada para $nombre!", Toast.LENGTH_SHORT).show()
-
-        // Navegar al login después del registro:
-        // val intent = Intent(this, Login::class.java)
-        // intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        // startActivity(intent)
-        // finish()
     }
 }
