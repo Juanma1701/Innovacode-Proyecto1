@@ -13,12 +13,15 @@
         android:layout_height="729dp"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        android:gravity="center" >
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:orientation="horizontal">
+            android:layout_height="230dp"
+            android:orientation="horizontal"
+            android:gravity="center">
 
 
             <Button
@@ -36,15 +39,51 @@
                 android:text="ERP InnovaCode"
                 android:textSize="42dp"
                 android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="204dp"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/white"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Compras: "
+                    android:textSize="30dp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="204dp"
+                android:layout_height="50dp"
+                android:backgroundTint="@color/white"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ventas: "
+                    android:textSize="30dp"/>
+            </LinearLayout>
 
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="269dp"
+            android:layout_height="209dp"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:gravity="center">
 
             <Button
                 android:layout_width="160dp"
@@ -58,7 +97,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="@null" />
+                app:backgroundTint="#7B5EA7" />
 
             <Button
                 android:layout_width="160dp"
@@ -67,19 +106,19 @@
                 android:background="@drawable/boton_personalizado"
                 android:drawableTop=""
                 android:paddingTop="20dp"
-                android:text="Reportes"
+                android:text="Inventario"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="@null" />
+                app:backgroundTint="#7B5EA7" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="375dp"
+            android:layout_height="209dp"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:gravity="center">
 
             <Button
                 android:layout_width="160dp"
@@ -93,7 +132,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="@null" />
+                app:backgroundTint="#7B5EA7" />
 
             <Button
                 android:layout_width="160dp"
@@ -107,7 +146,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:backgroundTint="@null" />
+                app:backgroundTint="#7B5EA7" />
         </LinearLayout>
 
     </LinearLayout>
