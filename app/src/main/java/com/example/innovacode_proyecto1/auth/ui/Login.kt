@@ -132,7 +132,7 @@ class Login : AppCompatActivity() {
 
         // Olvidé contraseña
         tvOlvideContrasena.setOnClickListener {
-            recuperarContrasena()
+            startActivity(Intent(this, RecuperarContrasena::class.java))
         }
 
         // Iniciar sesión con Google

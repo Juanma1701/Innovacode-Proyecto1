@@ -7,32 +7,37 @@
     android:orientation="vertical"
     android:background="#0A0A0F"
     android:gravity="center"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:paddingStart="28dp"
     android:paddingEnd="28dp"
     android:paddingTop="24dp"
     android:paddingBottom="24dp">
 
-    <!-- ══ Logo ══ -->
-    <LinearLayout
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:background="@drawable/fondo_logo"
-        android:gravity="center"
-        android:layout_marginBottom="16dp">
+    <!-- ══ Logo Innovacode ══ -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_logo_innovacode"
+        android:contentDescription="Logo Innovacode"
+        android:layout_marginBottom="14dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_candado"
-            android:contentDescription="Logo app"
-            app:tint="#FFFFFF" />
-    </LinearLayout>
+    <!-- ══ Nombre de la app ══ -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INNOVACODE"
+        android:textColor="#29ABE2"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.25"
+        android:layout_marginBottom="6dp" />
 
     <!-- ══ Título ══ -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bienvenido de nuevo"
+        android:text="Bienvenido"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
         android:textStyle="bold"

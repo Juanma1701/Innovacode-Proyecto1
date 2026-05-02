@@ -12,26 +12,31 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:paddingStart="28dp"
         android:paddingEnd="28dp"
-        android:paddingTop="48dp"
+        android:paddingTop="40dp"
         android:paddingBottom="40dp">
 
-        <!-- ══ Logo / Ícono ══ -->
-        <LinearLayout
+        <!-- ══ Logo Innovacode ══ -->
+        <ImageView
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:background="@drawable/fondo_logo"
-            android:gravity="center"
-            android:layout_marginBottom="24dp">
+            android:src="@drawable/ic_logo_innovacode"
+            android:contentDescription="Logo Innovacode"
+            android:layout_marginBottom="10dp" />
 
-            <ImageView
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:src="@drawable/ic_persona"
-                android:contentDescription="Logo registro"
-                app:tint="#FFFFFF" />
-        </LinearLayout>
+        <!-- ══ Nombre de la app ══ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INNOVACODE"
+            android:textColor="#29ABE2"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.25"
+            android:layout_marginBottom="16dp" />
 
         <!-- ══ Título ══ -->
         <TextView
@@ -39,20 +44,19 @@
             android:layout_height="wrap_content"
             android:text="Crea tu cuenta"
             android:textColor="#FFFFFF"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:fontFamily="sans-serif-medium"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="6dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Completa tus datos para registrarte"
             android:textColor="#6B7280"
-            android:textSize="14sp"
-            android:layout_marginBottom="32dp" />
+            android:textSize="13sp"
+            android:layout_marginBottom="28dp" />
 
-        <!-- ══ Tarjeta del formulario ══ -->
+        <!-- ══ Tarjeta ══ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,17 +64,17 @@
             android:background="@drawable/fondo_tarjeta"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
-            android:paddingTop="28dp"
-            android:paddingBottom="28dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
             android:elevation="8dp">
 
             <!-- ── Nombre de usuario ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre de usuario"
+                android:text="NOMBRE DE USUARIO"
                 android:textColor="#A0A8C0"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="8dp" />
@@ -112,9 +116,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de documento"
+                android:text="TIPO DE DOCUMENTO"
                 android:textColor="#A0A8C0"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="8dp" />
@@ -150,9 +154,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Número de documento"
+                android:text="NÚMERO DE DOCUMENTO"
                 android:textColor="#A0A8C0"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="8dp" />
@@ -193,9 +197,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Número de teléfono"
+                android:text="NÚMERO DE TELÉFONO"
                 android:textColor="#A0A8C0"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="8dp" />
@@ -233,13 +237,13 @@
                     android:autofillHints="phoneNumber" />
             </LinearLayout>
 
-            <!-- ── Correo electrónico ── -->
+            <!-- ── Correo ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo electrónico"
+                android:text="CORREO ELECTRÓNICO"
                 android:textColor="#A0A8C0"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="8dp" />
@@ -281,9 +285,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contraseña"
+                android:text="CONTRASEÑA"
                 android:textColor="#A0A8C0"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="8dp" />
@@ -336,9 +340,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Confirmar contraseña"
+                android:text="CONFIRMAR CONTRASEÑA"
                 android:textColor="#A0A8C0"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:textStyle="bold"
                 android:letterSpacing="0.08"
                 android:layout_marginBottom="8dp" />
@@ -415,7 +419,7 @@
 
         </LinearLayout>
 
-        <!-- ══ ¿Ya tienes cuenta? Iniciar sesión ══ -->
+        <!-- ══ ¿Ya tienes cuenta? ══ -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
