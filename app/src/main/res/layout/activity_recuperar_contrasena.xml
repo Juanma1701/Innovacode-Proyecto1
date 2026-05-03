@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0F"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="40dp">
+
+        <!-- ══ Botón volver ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="24dp">
+
+            <ImageButton
+                android:id="@+id/btnVolver"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_flecha_atras"
+                android:contentDescription="Volver"
+                android:background="@drawable/fondo_boton_outline"
+                app:tint="#6C63FF"
+                android:padding="10dp" />
+        </LinearLayout>
+
+        <!-- ══ Ícono ══ -->
+        <LinearLayout
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/fondo_logo"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_correo"
+                android:contentDescription="Ícono correo"
+                app:tint="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- ══ Título ══ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recuperar contraseña"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Te enviaremos un enlace a tu correo\npara restablecer tu contraseña"
+            android:textColor="#6B7280"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginBottom="32dp" />
+
+        <!-- ══ Tarjeta ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/fondo_tarjeta"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:elevation="8dp">
+
+            <!-- ── Label: Correo ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CORREO ELECTRÓNICO"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.10"
+                android:layout_marginBottom="8dp" />
+
+            <!-- ── Campo: Correo ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="24dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_correo"
+                    android:contentDescription="Ícono correo"
+                    app:tint="#6C63FF"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/etCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="tucorreo@ejemplo.com"
+                    android:textColorHint="#3D3D5C"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="textEmailAddress"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:autofillHints="emailAddress" />
+            </LinearLayout>
+
+            <!-- ── Botón: Enviar enlace ── -->
+            <Button
+                android:id="@+id/btnEnviarEnlace"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Enviar enlace de recuperación"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.03"
+                android:background="@drawable/fondo_boton_violeta"
+                android:stateListAnimator="@null" />
+
+        </LinearLayout>
+
+        <!-- ══ Mensaje de confirmación (oculto por defecto) ══ -->
+        <LinearLayout
+            android:id="@+id/layoutConfirmacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/fondo_confirmacion"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_correo"
+                app:tint="#6C63FF"
+                android:contentDescription="Correo enviado"
+                android:layout_marginBottom="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¡Correo enviado!"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp" />
+
+            <TextView
+                android:id="@+id/tvCorreoEnviado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#6B7280"
+                android:textSize="13sp"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <!-- ══ Volver al login ══ -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Recordaste tu contraseña?  "
+                android:textColor="#6B7280"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvVolverLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Iniciar sesión"
+                android:textColor="#6C63FF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:background="@drawable/fondo_etiqueta_acento"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

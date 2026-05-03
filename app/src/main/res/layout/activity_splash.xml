@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#0A0A0F">
+
+    <!-- ══ Logo ══ -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:src="@drawable/ic_logo_innovacode"
+        android:contentDescription="Logo Innovacode"
+        android:scaleType="fitCenter"
+        android:alpha="0"
+        android:layout_marginBottom="20dp" />
+
+    <!-- ══ Nombre ══ -->
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INNOVACODE"
+        android:textColor="#29ABE2"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.3"
+        android:alpha="0"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ══ Slogan ══ -->
+    <TextView
+        android:id="@+id/tvSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gestiona más, preocúpate menos"
+        android:textColor="#6B7280"
+        android:textSize="14sp"
+        android:alpha="0" />
+
+    <!-- ══ ProgressBar abajo ══ -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:indeterminateTint="#6C63FF"
+        android:layout_marginTop="60dp"
+        android:alpha="0" />
+
+</LinearLayout>
