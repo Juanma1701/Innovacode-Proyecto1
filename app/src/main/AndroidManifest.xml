@@ -11,15 +11,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovacodeProyecto1">
+
+        <!-- ── Splash: pantalla de inicio ── -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".auth.ui.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.InnovacodeProyecto1.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".auth.ui.Login"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".auth.ui.Register"
+            android:exported="false" />
+
+        <activity
+            android:name=".auth.ui.RecuperarContrasena"
+            android:exported="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
