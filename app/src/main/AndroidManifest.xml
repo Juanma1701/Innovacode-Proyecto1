@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovacodeProyecto1">
         <activity
+            android:name=".Inventario.Content.Inventario"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

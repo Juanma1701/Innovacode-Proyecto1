@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Flecha trending up -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M3,17 L9,11 L13,15 L21,7" />
+
+    <!-- Punta de flecha -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:pathData="M16,7 L21,7 L21,12" />
+
+    <!-- Signo $ -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M5,18 L5,22 M5,18 C5,18 3,18 3,19.5 C3,21 5,21 5,22 C5,23 3,23 3,22" />
+
+</vector>
