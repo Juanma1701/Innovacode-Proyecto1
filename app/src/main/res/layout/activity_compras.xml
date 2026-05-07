@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ComprasActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0A0A0F">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="28dp">
+
+            <!-- Título -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registro de Compras"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Tarjeta -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/fondo_tarjeta"
+                android:padding="18dp"
+                android:elevation="8dp">
+
+                <!-- PRODUCTO -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PRODUCTO"
+                    style="@style/LabelStyle"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:id="@+id/etProductoCompra"
+                    style="@style/InputStyle"
+                    android:hint="Nombre del producto"/>
+
+                <!-- PROVEEDOR -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PROVEEDOR"
+                    style="@style/LabelStyle"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:id="@+id/etProveedor"
+                    style="@style/InputStyle"
+                    android:hint="Nombre del proveedor"/>
+
+                <!-- CANTIDAD -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CANTIDAD"
+                    style="@style/LabelStyle"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:id="@+id/etCantidadCompra"
+                    style="@style/InputStyle"
+                    android:inputType="number"
+                    android:hint="0"/>
+
+                <!-- PRECIO -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PRECIO UNITARIO"
+                    style="@style/LabelStyle"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:id="@+id/etPrecioCompra"
+                    style="@style/InputStyle"
+                    android:inputType="numberDecimal"
+                    android:hint="$0.00"/>
+
+                <!-- FECHA -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="FECHA"
+                    style="@style/LabelStyle"/>
+
+                <EditText
+                    android:id="@+id/etFechaCompra"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    style="@style/InputStyle"
+                    android:hint="Seleccionar fecha"
+                    android:focusable="false"
+                    android:clickable="true"/>
+
+                <!-- BOTÓN -->
+                <Button
+                    android:id="@+id/btnRegistrarCompra"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="Registrar Compra"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:background="@drawable/fondo_boton_violeta"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/fondo_tarjeta"
+                android:padding="18dp"
+                android:elevation="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Filtrar Compras"
+                    style="@style/LabelStyle"/>
+
+                <!-- Producto -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/fondo_campo_dark"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <Spinner
+                        android:id="@+id/spProducto"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@null"/>
+
+                    <ImageButton
+                        android:id="@+id/btnClearProducto"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Limpiar filtro"
+                        android:padding="8dp"/>
+                </LinearLayout>
+
+                <!-- Proveedor -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/fondo_campo_dark"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <Spinner
+                        android:id="@+id/spProveedor"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@null"/>
+
+                    <ImageButton
+                        android:id="@+id/btnClearProveedor"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Limpiar filtro"
+                        android:padding="8dp"/>
+                </LinearLayout>
+
+                <!-- Fecha -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/fondo_campo_dark"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <Spinner
+                        android:id="@+id/spFecha"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="12dp"
+                        android:layout_weight="1"
+                        android:background="@null"/>
+
+                    <ImageButton
+                        android:id="@+id/btnClearFecha"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="Limpiar filtro"
+                        android:padding="8dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCompras"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_marginTop="16dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
