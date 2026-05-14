@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="48dp"
-    android:height="48dp"
+    android:width="64dp"
+    android:height="64dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
 
-    <!-- Carrito -->
+    <!-- Mango del carrito -->
     <path
-        android:fillColor="@color/white"
-        android:pathData="M2,3 L4,3 L4.5,5 L20,5 L18,14 L6,14 L4,3 Z" />
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:pathData="M1,1 L3,1 L3,2" />
 
-    <!-- Ruedas -->
+    <!-- Cuerpo del carrito con forma trapezoidal -->
     <path
-        android:fillColor="@color/white"
-        android:pathData="M8,17 m-1.5,0 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0" />
-    <path
-        android:fillColor="@color/white"
-        android:pathData="M16,17 m-1.5,0 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0" />
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M3,2 L5,14 L19,14 L21,5 L6,5" />
 
-    <!-- Líneas internas -->
+    <!-- Líneas internas del cuerpo (estanterías) -->
     <path
-        android:fillColor="@android:color/white"
-        android:strokeColor="#7B52AB"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
         android:strokeWidth="1.2"
-        android:pathData="M7,8 L17,8 M7,11 L17,11" />
+        android:strokeLineCap="round"
+        android:pathData="M6.5,9 L19.8,9" />
+
+    <!-- Rueda izquierda -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M8,17 m-1.5,0 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0" />
+
+    <!-- Rueda derecha -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M16,17 m-1.5,0 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0" />
 
 </vector>

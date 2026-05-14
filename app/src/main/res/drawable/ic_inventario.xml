@@ -1,33 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="48dp"
-    android:height="48dp"
+    android:width="54dp"
+    android:height="54dp"
     android:viewportWidth="24"
     android:viewportHeight="24">
 
-    <!-- Asa de la bolsa -->
+    <!-- Asas de la canasta -->
     <path
         android:fillColor="@android:color/transparent"
         android:strokeColor="#FFFFFF"
         android:strokeWidth="1.8"
         android:strokeLineCap="round"
-        android:pathData="M9,7 C9,4.79 10.79,3 13,3 C15.21,3 17,4.79 17,7" />
+        android:pathData="M6,9 Q6,4 12,4 Q18,4 18,9" />
 
-    <!-- Cuerpo de la bolsa -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M5,7 L19,7 L20.5,20 C20.78,22 19,22 19,22 L7,22 C5,22 3.5,20 3.5,20 Z" />
-
-    <!-- Línea decorativa -->
+    <!-- Cuerpo de la canasta -->
     <path
         android:fillColor="@android:color/transparent"
-        android:strokeColor="#7B52AB"
-        android:strokeWidth="1.5"
-        android:pathData="M8,12 L16,12" />
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M3,9 L5,20 Q5.5,21 7,21 L17,21 Q18.5,21 19,20 L21,9 Z" />
+
+    <!-- Líneas verticales de la canasta (tejido) -->
     <path
         android:fillColor="@android:color/transparent"
-        android:strokeColor="#7B52AB"
-        android:strokeWidth="1.5"
-        android:pathData="M9,16 L15,16" />
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M9,9 L8,21" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M12,9 L12,21" />
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M15,9 L16,21" />
+
+    <!-- Línea horizontal de la canasta -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M4,15 L20,15" />
 
 </vector>

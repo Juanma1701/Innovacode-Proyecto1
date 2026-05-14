@@ -12,11 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovacodeProyecto1">
         <activity
+            android:name=".Perfil.Content.Perfil"
+            android:exported="false" />
+        <activity
+            android:name=".Inventarioform.Content.Inventarioform"
+            android:exported="false" />
+        <activity
+            android:name=".Dashboard.Content.Dashboard"
+            android:exported="true" />
+        <activity
             android:name=".Inventario.Content.Inventario"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
