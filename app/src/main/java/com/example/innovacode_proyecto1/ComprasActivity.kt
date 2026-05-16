@@ -25,6 +25,11 @@ class ComprasActivity : AppCompatActivity() {
 
     private lateinit var adapter: CompraAdapter
 
+    // 🔹 Función para contar compras 
+    fun obtenerTotalCompras(): Int {
+        return listaCompras.size
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -94,9 +99,9 @@ class ComprasActivity : AppCompatActivity() {
 
         // 🔹 Filtrar
         fun filtrar() {
-            val productoSel = spProducto.selectedItem.toString()
-            val proveedorSel = spProveedor.selectedItem.toString()
-            val fechaSel = spFecha.selectedItem.toString()
+            val productoSel = spProducto.selectedItem?.toString() ?: "Todos"
+            val proveedorSel = spProveedor.selectedItem?.toString() ?: "Todos"
+            val fechaSel = spFecha.selectedItem?.toString() ?: "Todos"
 
             listaFiltrada.clear()
 
@@ -133,28 +138,46 @@ class ComprasActivity : AppCompatActivity() {
 
         // 🔹 Registrar compra
         btnRegistrar.setOnClickListener {
+
             val producto = etProducto.text.toString()
             val proveedor = etProveedor.text.toString()
             val cantidad = etCantidad.text.toString().toIntOrNull() ?: 0
             val precio = etPrecio.text.toString().toDoubleOrNull() ?: 0.0
             val fecha = etFecha.text.toString()
 
-            if (producto.isNotEmpty() && proveedor.isNotEmpty()) {
-                val nueva = Compra(producto, proveedor, cantidad, precio, fecha)
-                listaCompras.add(nueva)
-
-                cargarFiltros()
-                filtrar()
-
-                // limpiar campos
-                etProducto.text.clear()
-                etProveedor.text.clear()
-                etCantidad.text.clear()
-                etPrecio.text.clear()
-                etFecha.text.clear()
-            } else {
-                Toast.makeText(this, "Completa los campos", Toast.LENGTH_SHORT).show()
+            // Validaciones
+            if (producto.isEmpty() || proveedor.isEmpty() || fecha.isEmpty()) {
+                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+
+            if (cantidad <= 0 || precio <= 0.0) {
+                Toast.makeText(this, "Cantidad y precio deben ser mayores a 0", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val nueva = Compra(producto, proveedor, cantidad, precio, fecha)
+
+            // 🔹 Simulación local (igual que ventas)
+            listaCompras.add(nueva)
+
+            // 🔹 Refrescar UI
+            cargarFiltros()
+            filtrar()
+
+            // 🔹 Limpiar campos
+            etProducto.text.clear()
+            etProveedor.text.clear()
+            etCantidad.text.clear()
+            etPrecio.text.clear()
+            etFecha.text.clear()
+
+            // 🔹 Reset filtros
+            spProducto.setSelection(0)
+            spProveedor.setSelection(0)
+            spFecha.setSelection(0)
+
+            Toast.makeText(this, "Compra registrada", Toast.LENGTH_SHORT).show()
         }
 
         // Inicial
