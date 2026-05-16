@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovacodeProyecto1">
         <activity
-            android:name=".MainActivity"
+            android:name=".MainVentas"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
