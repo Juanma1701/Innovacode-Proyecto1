@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_tarjeta"
+    android:padding="16dp"
+    android:layout_marginBottom="10dp"
+    android:elevation="6dp">
+
+    <!-- PRODUCTO -->
+    <TextView
+        android:id="@+id/tvProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Producto"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <!-- CLIENTE -->
+    <TextView
+        android:id="@+id/tvCliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cliente: ..."
+        android:textColor="#CCCCCC"
+        android:layout_marginTop="4dp"/>
+
+    <!-- CANTIDAD -->
+    <TextView
+        android:id="@+id/tvCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cantidad: ..."
+        android:textColor="#CCCCCC"
+        android:layout_marginTop="2dp"/>
+
+    <!-- PRECIO -->
+    <TextView
+        android:id="@+id/tvPrecio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textColor="#B388FF"
+        android:textStyle="bold"
+        android:layout_marginTop="2dp"/>
+
+    <!-- FECHA -->
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha: ..."
+        android:textColor="#888888"
+        android:textSize="12sp"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>
