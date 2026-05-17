@@ -26,6 +26,11 @@ class MainVentas : AppCompatActivity() {
 
     private lateinit var adapter: VentaAdapter
 
+    // este es el contador de registros
+    fun obtenerTotalVentas(): Int {
+        return listaVentas.size
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_ventas)
@@ -130,10 +135,6 @@ class MainVentas : AppCompatActivity() {
             }
 
             adapter.actualizarLista(listaFiltrada)
-        }
-        // este es el contador de registros
-        fun obtenerTotalVentas(): Int {
-            return listaVentas.size
         }
 
         // 🔹 Botón registrar
