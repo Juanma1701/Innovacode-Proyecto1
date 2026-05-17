@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.innovacode_proyecto1.R
 import android.content.Intent
+import android.widget.ImageButton
+import com.example.innovacode_proyecto1.Perfil.Content.Perfil
 
 class Dashboard : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +23,15 @@ class Dashboard : AppCompatActivity() {
             insets
         }
         val btninventario = findViewById<Button>(R.id.btninvent)
+        val btnperfil = findViewById< ImageButton>(R.id.btnperfil)
 
         btninventario.setOnClickListener {
             val intent = Intent(this, Inventario::class.java)
+            startActivity(intent)
+        }
+
+        btnperfil.setOnClickListener {
+            val intent = Intent(this, Perfil::class.java)
             startActivity(intent)
         }
 
