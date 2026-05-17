@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_tarjeta"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp">
+
+    <!-- Producto -->
+    <TextView
+        android:id="@+id/tvProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Producto"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+
+    <!-- Proveedor -->
+    <TextView
+        android:id="@+id/tvProveedor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proveedor"
+        android:textColor="#A0A8C0"
+        android:textSize="13sp"
+        android:layout_marginTop="4dp"/>
+
+    <!-- Cantidad -->
+    <TextView
+        android:id="@+id/tvCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad"
+        android:textColor="#A0A8C0"
+        android:textSize="13sp"/>
+
+    <!-- Precio -->
+    <TextView
+        android:id="@+id/tvPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textColor="#6C63FF"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
+
+    <!-- Fecha -->
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textColor="#6B7280"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"/>
+
+</LinearLayout>

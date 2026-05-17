@@ -26,12 +26,17 @@
             android:name=".Inventario.Content.Inventario"
             android:exported="false" />
 
-        <!-- Activity de ventas -->
+        <!-- Ventas -->
         <activity
             android:name=".MainVentas"
             android:exported="false" />
 
-        <!-- Activity principal -->
+        <!-- Compras -->
+        <activity
+            android:name=".ComprasActivity"
+            android:exported="false" />
+
+        <!-- Launcher -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
