@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0F"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp">
+
+        <!-- ══ Logo Innovacode ══ -->
+        <ImageView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_logo_innovacode"
+            android:contentDescription="Logo Innovacode"
+            android:layout_marginBottom="10dp" />
+
+        <!-- ══ Nombre de la app ══ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INNOVACODE"
+            android:textColor="#29ABE2"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.25"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ══ Título ══ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crea tu cuenta"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Completa tus datos para registrarte"
+            android:textColor="#6B7280"
+            android:textSize="13sp"
+            android:layout_marginBottom="28dp" />
+
+        <!-- ══ Tarjeta ══ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/fondo_tarjeta"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp"
+            android:elevation="8dp">
+
+            <!-- ── Nombre de usuario ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOMBRE DE USUARIO"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_persona"
+                    app:tint="#6C63FF"
+                    android:contentDescription="Ícono usuario"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/etNombreUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Tu nombre de usuario"
+                    android:textColorHint="#3D3D5C"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="textPersonName"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:autofillHints="username" />
+            </LinearLayout>
+
+            <!-- ── Tipo de documento ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TIPO DE DOCUMENTO"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_documento"
+                    app:tint="#6C63FF"
+                    android:contentDescription="Ícono documento"
+                    android:layout_marginEnd="12dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerTipoDocumento"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:popupBackground="@drawable/fondo_tarjeta"
+                    android:entries="@array/tipos_documento" />
+            </LinearLayout>
+
+            <!-- ── Número de documento ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NÚMERO DE DOCUMENTO"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_numero_documento"
+                    app:tint="#6C63FF"
+                    android:contentDescription="Ícono número documento"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/etNumeroDocumento"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Ej: 1234567890"
+                    android:textColorHint="#3D3D5C"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="number"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext" />
+            </LinearLayout>
+
+            <!-- ── Teléfono ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NÚMERO DE TELÉFONO"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_telefono"
+                    app:tint="#6C63FF"
+                    android:contentDescription="Ícono teléfono"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/etTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Ej: 3001234567"
+                    android:textColorHint="#3D3D5C"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="phone"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:autofillHints="phoneNumber" />
+            </LinearLayout>
+
+            <!-- ── Correo ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CORREO ELECTRÓNICO"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_correo"
+                    app:tint="#6C63FF"
+                    android:contentDescription="Ícono correo"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/etCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="tucorreo@ejemplo.com"
+                    android:textColorHint="#3D3D5C"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="textEmailAddress"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:autofillHints="emailAddress" />
+            </LinearLayout>
+
+            <!-- ── Contraseña ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONTRASEÑA"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="4dp"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_candado"
+                    app:tint="#6C63FF"
+                    android:contentDescription="Ícono candado"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/etContrasena"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="Mínimo 6 caracteres"
+                    android:textColorHint="#3D3D5C"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="textPassword"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionNext"
+                    android:autofillHints="newPassword" />
+
+                <ImageButton
+                    android:id="@+id/btnVerContrasena"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/ic_ojo_cerrado"
+                    android:contentDescription="Ver contraseña"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#6C63FF"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- ── Confirmar contraseña ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONFIRMAR CONTRASEÑA"
+                android:textColor="#A0A8C0"
+                android:textSize="10sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.08"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/fondo_campo_dark"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="4dp"
+                android:layout_marginBottom="28dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_candado"
+                    app:tint="#6C63FF"
+                    android:contentDescription="Ícono candado"
+                    android:layout_marginEnd="12dp" />
+
+                <EditText
+                    android:id="@+id/etConfirmarContrasena"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:hint="Repite tu contraseña"
+                    android:textColorHint="#3D3D5C"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:inputType="textPassword"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:autofillHints="newPassword" />
+
+                <ImageButton
+                    android:id="@+id/btnVerConfirmarContrasena"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@drawable/ic_ojo_cerrado"
+                    android:contentDescription="Ver confirmar contraseña"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#6C63FF"
+                    android:padding="10dp" />
+            </LinearLayout>
+
+            <!-- ── Botón: Crear Cuenta ── -->
+            <Button
+                android:id="@+id/btnCrearCuenta"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Crear Cuenta"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04"
+                android:background="@drawable/fondo_boton_violeta"
+                android:stateListAnimator="@null"
+                android:layout_marginBottom="14dp" />
+
+            <!-- ── Botón: Cancelar ── -->
+            <Button
+                android:id="@+id/btnCancelar"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Cancelar"
+                android:textColor="#A0A8C0"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:background="@drawable/fondo_boton_outline"
+                android:stateListAnimator="@null" />
+
+        </LinearLayout>
+
+        <!-- ══ ¿Ya tienes cuenta? ══ -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Ya tienes una cuenta?  "
+                android:textColor="#6B7280"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvIniciarSesion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Iniciar sesión"
+                android:textColor="#6C63FF"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@drawable/fondo_etiqueta_acento"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

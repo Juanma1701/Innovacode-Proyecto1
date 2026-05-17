@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="#111827"
     tools:context=".Dashboard.Content.Dashboard">
 
     <LinearLayout
@@ -20,31 +20,56 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:gravity="center">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:gravity="right">
 
-            <Button
-                android:id="@+id/btnRedondo"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:background="@drawable/boton_personalizado_perfil"
-                android:text=""
-                android:textColor="#FFFFFF"/>
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="ERP InnovaCode"
-                android:textSize="42dp"
-                android:textColor="@color/white"/>
+                    <Button
+                        android:id="@+id/btnRedondo"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:background="@drawable/boton_personalizado_perfil"
+                        android:drawableTop="@drawable/ic_persona"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_logo_innovacode" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="INNOVACODE"
+                    android:textColor="#29ABE2"
+                    android:textSize="30dp"
+                    android:textStyle="bold"
+                    android:gravity="top"/>
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="204dp"
@@ -57,8 +82,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Compras: "
-                    android:textSize="30dp"/>
+                    android:text="Compras resgitradas : "
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"/>
 
             </LinearLayout>
             <LinearLayout
@@ -72,8 +99,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Ventas: "
-                    android:textSize="30dp"/>
+                    android:text="Ventas resgitradas : "
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"/>
             </LinearLayout>
 
 
@@ -86,32 +115,32 @@
             android:gravity="center">
 
             <Button
+                android:id="@+id/btninvent"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_margin="10dp"
+                android:text="Inventario"
                 android:background="@drawable/boton_personalizado"
-                android:drawableTop=""
+                android:drawableTop="@drawable/ic_inventario"
+                android:drawablePadding="8dp"
                 android:paddingTop="20dp"
-                android:text="Productos"
+                android:textStyle="bold"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="#7B5EA7" />
+                android:textSize="16dp" />
 
             <Button
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_reportes"
                 android:background="@drawable/boton_personalizado"
-                android:drawableTop=""
                 android:paddingTop="20dp"
-                android:text="Inventario"
+                android:text="Reportes"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="#7B5EA7" />
+                android:textSize="16dp"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -124,30 +153,27 @@
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_compras"
                 android:background="@drawable/boton_personalizado"
-                android:drawableTop=""
                 android:paddingTop="20dp"
                 android:text="Compras"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="#7B5EA7" />
+                android:textSize="16dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_ventas"
                 android:background="@drawable/boton_personalizado"
-                android:drawableTop=""
                 android:paddingTop="20dp"
                 android:text="Ventas"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:backgroundTint="#7B5EA7" />
+                android:textSize="16dp"
+                android:textStyle="bold"/>
         </LinearLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

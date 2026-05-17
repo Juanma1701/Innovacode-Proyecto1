@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Innovacode-Proyecto1</string>
+    <string name="app_name">innovacode_proyecto1</string>
+
+    <string-array name="tipos_documento">
+        <item>Selecciona el tipo</item>
+        <item>Cédula de ciudadanía</item>
+        <item>Cédula de extranjería</item>
+        <item>Pasaporte</item>
+        <item>Tarjeta de identidad</item>
+        <item>NIT</item>
+        <item>RUT</item>
+    </string-array>
+
 </resources>

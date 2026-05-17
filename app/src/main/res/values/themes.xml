@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.InnovacodeProyecto1" parent="Base.Theme.InnovacodeProyecto1" />
+
+    <!-- Tema para el Splash Screen -->
+    <style name="Theme.InnovacodeProyecto1.Splash" parent="Theme.InnovacodeProyecto1">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>
