@@ -1,10 +1,12 @@
-package com.example.innovacode_proyecto1
+package com.example.innovacode_proyecto1.Ventas.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.innovacode_proyecto1.R
+import com.example.innovacode_proyecto1.Ventas.Content.MainVentas
 
 class VentaAdapter(private var lista: List<MainVentas.Venta>) :
     RecyclerView.Adapter<VentaAdapter.ViewHolder>() {

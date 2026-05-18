@@ -28,12 +28,12 @@
 
         <!-- Ventas -->
         <activity
-            android:name=".MainVentas"
+            android:name=".Ventas.Content.MainVentas"
             android:exported="false" />
 
         <!-- Compras -->
         <activity
-            android:name=".ComprasActivity"
+            android:name=".Compras.Content.ComprasActivity"
             android:exported="false" />
 
         <!-- Launcher -->

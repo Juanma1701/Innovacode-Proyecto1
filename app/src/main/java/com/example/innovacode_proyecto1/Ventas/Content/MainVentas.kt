@@ -1,13 +1,21 @@
-package com.example.innovacode_proyecto1
+package com.example.innovacode_proyecto1.Ventas.Content
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.innovacode_proyecto1.R
+import com.example.innovacode_proyecto1.Ventas.Adapter.VentaAdapter
 import java.util.Calendar
-import android.app.DatePickerDialog
 
 class MainVentas : AppCompatActivity() {
 
@@ -46,7 +54,8 @@ class MainVentas : AppCompatActivity() {
 
         etFecha.setOnClickListener {
 
-            val datePicker = DatePickerDialog(this,
+            val datePicker = DatePickerDialog(
+                this,
                 { _, selectedYear, selectedMonth, selectedDay ->
 
                     calendar.set(selectedYear, selectedMonth, selectedDay)
@@ -102,7 +111,8 @@ class MainVentas : AppCompatActivity() {
             val clientes = listOf("Todos") + listaVentas.map { it.cliente }.distinct()
             val fechas = listOf("Todos") + listaVentas.map { it.fecha }.distinct()
 
-            val adapterProductos = ArrayAdapter(this, android.R.layout.simple_spinner_item, productos)
+            val adapterProductos =
+                ArrayAdapter(this, android.R.layout.simple_spinner_item, productos)
             adapterProductos.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
             val adapterClientes = ArrayAdapter(this, android.R.layout.simple_spinner_item, clientes)

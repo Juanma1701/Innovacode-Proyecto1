@@ -1,13 +1,21 @@
-package com.example.innovacode_proyecto1
+package com.example.innovacode_proyecto1.Compras.Content
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.app.DatePickerDialog
+import com.example.innovacode_proyecto1.Compras.Adapter.CompraAdapter
+import com.example.innovacode_proyecto1.R
 import java.util.Calendar
 
 class ComprasActivity : AppCompatActivity() {
@@ -25,7 +33,7 @@ class ComprasActivity : AppCompatActivity() {
 
     private lateinit var adapter: CompraAdapter
 
-    // 🔹 Función para contar compras 
+    // 🔹 Función para contar compras
     fun obtenerTotalCompras(): Int {
         return listaCompras.size
     }
@@ -93,7 +101,8 @@ class ComprasActivity : AppCompatActivity() {
             val fechas = listOf("Todos") + listaCompras.map { it.fecha }.distinct()
 
             spProducto.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, productos)
-            spProveedor.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, proveedores)
+            spProveedor.adapter =
+                ArrayAdapter(this, android.R.layout.simple_spinner_item, proveedores)
             spFecha.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, fechas)
         }
 
