@@ -51,10 +51,10 @@
             android:name=".auth.ui.Login"
             android:exported="false" />
         <activity
-            android:name=".MainVentas"
+            android:name=".Ventas.Content.MainVentas"
             android:exported="false" />
         <activity
-            android:name=".ComprasActivity"
+            android:name=".Compras.Content.ComprasActivity"
             android:exported="false" />
         <activity
             android:name=".auth.ui.SplashActivity"
