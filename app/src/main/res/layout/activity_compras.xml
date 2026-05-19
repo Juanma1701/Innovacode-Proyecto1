@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Compras.Content.ComprasActivity">
+    tools:context=".ComprasActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,7 +23,6 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:background="@drawable/ic_flecha_atras"
-                android:contentDescription="Volver"
                 app:tint="#94A3B8" />
 
             <!-- Título -->
@@ -53,14 +52,12 @@
                     android:text="PRODUCTO"
                     style="@style/LabelStyle"/>
 
-                <EditText
+                <Spinner
+                    android:id="@+id/spProductoCompra"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:id="@+id/etProductoCompra"
-                    style="@style/InputStyle"
-                    android:hint="Nombre del producto"/>
+                    android:layout_height="wrap_content"/>
 
-                <!-- PROVEEDOR -->
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

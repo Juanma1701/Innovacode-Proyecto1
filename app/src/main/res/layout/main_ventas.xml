@@ -52,12 +52,11 @@
                     android:text="PRODUCTO"
                     style="@style/LabelStyle"/>
 
-                <EditText
-                    android:id="@+id/etProductoVenta"
+                <Spinner
+                    android:id="@+id/spProductoVenta"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    style="@style/InputStyle"
-                    android:hint="Nombre del producto"/>
+                    android:layout_height="wrap_content"
+                    />
 
                 <!-- CLIENTE -->
                 <TextView
@@ -131,7 +130,7 @@
                     android:layout_marginTop="16dp"/>
             </LinearLayout>
 
-            <!-- FILTROS -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,7 +155,7 @@
                     android:layout_marginBottom="8dp">
 
                     <Spinner
-                        android:id="@+id/spProductoVenta"
+                        android:id="@+id/spProductoVenta2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

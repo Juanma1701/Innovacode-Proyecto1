@@ -25,7 +25,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:background="@drawable/fondo_tarjeta_perfil"
-                android:src="@android:drawable/ic_menu_revert"
+                android:src="@drawable/ic_flecha_atras"
                 android:contentDescription="Volver"
                 android:padding="8dp"/>
 
