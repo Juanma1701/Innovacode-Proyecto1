@@ -11,43 +11,60 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InnovacodeProyecto1">
-
-        <!-- Activities existentes -->
+        <activity
+            android:name=".adapter_reportes.Content.adapter_reportes"
+            android:exported="false" />
+        <activity
+            android:name=".Reportes.Content.Reportes"
+            android:exported="false" />
+        <activity
+            android:name=".register_salida_producto.Content.Register_Salida_Producto"
+            android:exported="false" />
+        <activity
+            android:name=".adapter_alertas.Content.adapter_alertas"
+            android:exported="false" />
+        <activity
+            android:name=".alertas.Content.Alertas"
+            android:exported="false" />
+        <activity
+            android:name=".register_entrada_producto.Content.Register_Entrada_Producto"
+            android:exported="false" />
+        <activity
+            android:name=".adapter_inventario.Content.adapterInventario"
+            android:exported="false" />
         <activity
             android:name=".Perfil.Content.Perfil"
+            android:exported="false" />
+        <activity
+            android:name=".auth.ui.Register"
+            android:exported="false" />
+        <activity
+            android:name=".Dashboard.Content.Dashboard"
             android:exported="false" />
         <activity
             android:name=".Inventarioform.Content.Inventarioform"
             android:exported="false" />
         <activity
-            android:name=".Dashboard.Content.Dashboard"
-            android:exported="true" />
-        <activity
             android:name=".Inventario.Content.Inventario"
             android:exported="false" />
-
-        <!-- Ventas -->
+        <activity
+            android:name=".auth.ui.Login"
+            android:exported="false" />
         <activity
             android:name=".MainVentas"
             android:exported="false" />
-
-        <!-- Compras -->
         <activity
             android:name=".ComprasActivity"
             android:exported="false" />
-
-        <!-- Launcher -->
         <activity
-            android:name=".MainActivity"
+            android:name=".auth.ui.SplashActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
     </application>
 
 </manifest>

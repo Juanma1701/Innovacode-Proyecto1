@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.example.innovacode_proyecto1.Dashboard.Content.Dashboard
 import com.example.innovacode_proyecto1.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -174,14 +175,12 @@ class Login : AppCompatActivity() {
                         .set(datosUsuario)
                         .addOnSuccessListener {
                             Toast.makeText(this, "¡Bienvenido ${usuario.displayName}!", Toast.LENGTH_SHORT).show()
-                            irAlHome()
+
                         }
-                        .addOnFailureListener {
-                            irAlHome()
-                        }
+
                 } else {
                     Toast.makeText(this, "¡Bienvenido de nuevo ${usuario.displayName}!", Toast.LENGTH_SHORT).show()
-                    irAlHome()
+
                 }
             }
             .addOnFailureListener { e ->
@@ -198,8 +197,9 @@ class Login : AppCompatActivity() {
 
         auth.signInWithEmailAndPassword(correo, contrasena)
             .addOnSuccessListener {
-                Toast.makeText(this, "¡Bienvenido!", Toast.LENGTH_SHORT).show()
-                irAlHome()
+                val intent = Intent(this, Dashboard::class.java)
+                startActivity(intent)
+
             }
             .addOnFailureListener { e ->
                 val mensaje = when {
@@ -280,9 +280,5 @@ class Login : AppCompatActivity() {
         return true
     }
 
-    // ── Ir al Home ────────────────────────────────────────────────────────────
-    private fun irAlHome() {
-        // TODO: reemplazar con la pantalla principal cuando esté lista
-        Toast.makeText(this, "¡Login exitoso!", Toast.LENGTH_SHORT).show()
-    }
+
 }

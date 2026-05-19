@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.innovacode_proyecto1.Dashboard.Content.Dashboard
 import com.example.innovacode_proyecto1.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -80,22 +81,20 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun navegarSiguientePantalla() {
-        // Esperar 1 segundo más para que se vea el loading
         window.decorView.postDelayed({
             val intent = if (auth.currentUser != null) {
                 // Si hay sesión activa → ir al home
                 // Intent(this, HomeActivity::class.java)
                 // Por ahora va al Login hasta que tengas el home listo
-                Intent(this, Login::class.java)
+                Intent(this, Dashboard::class.java)
             } else {
-                // Sin sesión → ir al Login
                 Intent(this, Login::class.java)
             }
 
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
 
-            // Transición suave al salir del splash
+
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
             finish()
         }, 1000)

@@ -42,7 +42,8 @@
                         android:scaleType="fitCenter"
                         android:padding="14dp"
                         android:background="@drawable/fondo_persona_perfil"
-                        android:tint="@color/white" />
+                        android:tint="@color/white"
+                        android:pointerIcon="hand"/>
 
                 </LinearLayout>
 
@@ -54,7 +55,7 @@
                     app:srcCompat="@drawable/ic_logo_innovacode" />
 
                 <TextView
-                    android:id="@+id/textView"
+                    android:id="@+id/titulo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="NovaCore"
@@ -71,43 +72,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="204dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/white"
-                android:gravity="center">
+                android:id="@+id/cardAlertas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginBottom="12dp">
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/tvResumenAlertas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Compras: "
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:gravity="center"/>
+                    android:textColor="#FF6B6B"
+                    android:textSize="16sp"/>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="204dp"
-                android:layout_height="50dp"
-                android:backgroundTint="@color/white"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Ventas: "
-                    android:textSize="20dp"
-                    android:textColor="@color/white"
-                    android:gravity="center"/>
-            </LinearLayout>
-
 
         </LinearLayout>
 
@@ -130,9 +112,11 @@
                 android:textStyle="bold"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:pointerIcon="hand"/>
 
             <Button
+                android:id="@+id/btnreportes"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_margin="10dp"
@@ -143,7 +127,8 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:pointerIcon="hand"/>
         </LinearLayout>
 
         <LinearLayout
@@ -153,6 +138,7 @@
             android:gravity="center">
 
             <Button
+                android:id="@+id/btncompras"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_margin="10dp"
@@ -163,9 +149,11 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:pointerIcon="hand"/>
 
             <Button
+                android:id="@+id/btnventas"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_margin="10dp"
@@ -176,7 +164,8 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:pointerIcon="hand"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_tarjeta"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp"
+    android:id="@+id/main">
+
+    <!-- Producto -->
+    <TextView
+        android:id="@+id/tvProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Producto"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+
+    <!-- Cantidad -->
+    <TextView
+        android:id="@+id/tvCantidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cantidad"
+        android:textColor="#A0A8C0"
+        android:textSize="16sp"/>
+
+    <!-- Precio -->
+    <TextView
+        android:id="@+id/tvPrecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0.00"
+        android:textColor="#6C63FF"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"/>
+
+    <!-- Fecha -->
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textColor="#6B7280"
+        android:textSize="16sp"
+        android:layout_marginTop="2dp"/>
+
+    <TextView
+        android:id="@+id/tvCategoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="categoria:"
+        android:textColor="#6B7280"
+        android:textSize="16sp"
+        android:layout_marginTop="2dp"/>
+
+    <TextView
+        android:id="@+id/tvDescripcio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción: "
+        android:textColor="#6B7280"
+        android:textSize="16sp"
+        android:layout_marginTop="2dp"/>
+
+    <Button
+        android:id="@+id/btnRegistrarEntrada"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ Registrar Entrada"
+        android:backgroundTint="#6C63FF"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnRegistrarSalida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Registrar Salida"
+        android:backgroundTint="#FF6B6B"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:layout_marginTop="6dp"/>
+</LinearLayout>

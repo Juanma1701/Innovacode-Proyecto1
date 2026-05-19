@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.app.DatePickerDialog
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
 class ComprasActivity : AppCompatActivity() {
-
+    private val db = FirebaseFirestore.getInstance()
     data class Compra(
         val producto: String,
         val proveedor: String,
@@ -156,14 +157,31 @@ class ComprasActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val nueva = Compra(producto, proveedor, cantidad, precio, fecha)
+            val compra = hashMapOf(
+                "nombre_producto"  to producto,
+                "nombre_proveedor" to proveedor,
+                "cantidad"         to cantidad.toLong(),
+                "precio_u"         to precio,
+                "precio_total"     to (cantidad * precio),
+                "fecha"            to fecha,
+                "empresa_id"       to "empresa_demo",
+                "origen"           to "modulo_compras"
+            )
 
-            // 🔹 Simulación local (igual que ventas)
-            listaCompras.add(nueva)
-
-            // 🔹 Refrescar UI
-            cargarFiltros()
-            filtrar()
+            db.collection("compras")
+                .add(compra)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Compra registrada ✓", Toast.LENGTH_SHORT).show()
+                    cargarComprasDesdeFirestore()
+                    etProducto.text.clear()
+                    etProveedor.text.clear()
+                    etCantidad.text.clear()
+                    etPrecio.text.clear()
+                    etFecha.text.clear()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                }
 
             // 🔹 Limpiar campos
             etProducto.text.clear()
@@ -180,20 +198,31 @@ class ComprasActivity : AppCompatActivity() {
             Toast.makeText(this, "Compra registrada", Toast.LENGTH_SHORT).show()
         }
 
-        // Inicial
-        // 🔹 Datos de prueba
-        listaCompras.addAll(
-            listOf(
-                Compra("Arroz", "Proveedor A", 10, 2500.0, "01/05/2026"),
-                Compra("Frijoles", "Proveedor B", 5, 3000.0, "02/05/2026"),
-                Compra("Arroz", "Proveedor B", 8, 2400.0, "01/05/2026"),
-                Compra("Aceite", "Proveedor A", 3, 8000.0, "03/05/2026"),
-                Compra("Azúcar", "Proveedor C", 6, 2700.0, "02/05/2026")
-            )
-        )
 
-// 🔹 Inicializar filtros y lista
+        cargarComprasDesdeFirestore()
         cargarFiltros()
         filtrar()
+    }
+    private fun cargarComprasDesdeFirestore() {
+        db.collection("compras")
+            .whereEqualTo("empresa_id", "empresa_demo")
+            .get()
+            .addOnSuccessListener { documentos ->
+                listaCompras.clear()
+                for (doc in documentos) {
+                    val compra = Compra(
+                        producto  = doc.getString("nombre_producto") ?: "",
+                        proveedor = doc.getString("nombre_proveedor") ?: "",
+                        cantidad  = (doc.getLong("cantidad") ?: 0L).toInt(),
+                        precio    = doc.getDouble("precio_u") ?: 0.0,
+                        fecha     = doc.getString("fecha") ?: ""
+                    )
+                    listaCompras.add(compra)
+                }
+
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error al cargar: ${e.message}", Toast.LENGTH_LONG).show()
+            }
     }
 }

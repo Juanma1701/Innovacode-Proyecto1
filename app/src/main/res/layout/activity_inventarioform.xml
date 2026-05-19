@@ -4,17 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0D1117">
+    android:background="#0D1117"
+    android:id="@+id/main">
 
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#111827"
+        android:layout_height="70dp"
+        android:background="@drawable/fondo_tarjeta"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="16dp"
-        android:paddingBottom="16dp">
+        android:paddingBottom="16dp"
+        >
 
         <ImageButton
             android:id="@+id/btnlogo"
@@ -44,7 +46,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="620dp"
+        android:layout_height="570dp"
         android:scrollbars="none"
         app:layout_constraintBottom_toTopOf="@id/bottomBar"
         app:layout_constraintTop_toBottomOf="@id/topBar">
@@ -57,14 +59,14 @@
             android:paddingEnd="20dp"
             android:paddingTop="20dp"
             android:paddingBottom="12dp"
-            android:background="@color/black">
+            android:background="#0A0A0F">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Nombre del producto"
-                android:textColor="#29ABE2"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -73,22 +75,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
-                android:background="#111827"
                 android:hint="Ej. Arroz 500g"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
+                android:textColorHint="#808080"
                 android:inputType="textCapSentences"
                 android:padding="14dp"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                style="@style/InputStyle"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="370dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"
@@ -99,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="6dp"
                         android:text="Cantidad"
-                        android:textColor="#29ABE2"
+                        android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -107,53 +103,22 @@
                         android:id="@+id/etQuantity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#111827"
                         android:hint="Ej. 100"
-                        android:textColorHint="@color/white"
+                        android:textColorHint="#808080"
                         android:inputType="numberDecimal"
                         android:padding="14dp"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        style="@style/InputStyle"/>
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginStart="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="6dp"
-                        android:text="Unidad"
-                        android:textColor="#29ABE2"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <AutoCompleteTextView
-                        android:id="@+id/spinnerUnit"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#111827"
-                        android:hint="Ej. kg, lt, un"
-                        android:textColorHint="@color/white"
-                        android:inputType="none"
-                        android:padding="14dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="18dp">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -167,21 +132,20 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="6dp"
                         android:text="Categoría"
-                        android:textColor="#29ABE2"
+                        android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
-                    <AutoCompleteTextView
+                    <EditText
                         android:id="@+id/spinnerCategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#111827"
                         android:hint="Ej. Alimentos"
-                        android:textColorHint="@color/white"
+                        android:textColorHint="#808080"
                         android:inputType="none"
                         android:padding="14dp"
-                        android:textColor="@color/white"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        style="@style/InputStyle"/>
 
                 </LinearLayout>
 
@@ -197,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="6dp"
                         android:text="Precio unitario"
-                        android:textColor="#29ABE2"
+                        android:textColor="@color/white"
                         android:textSize="12sp"
                         android:textStyle="bold" />
 
@@ -205,13 +169,13 @@
                         android:id="@+id/etPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="#111827"
                         android:hint="Ej. $ 1500"
-                        android:textColorHint="@color/white"
+                        android:textColorHint="#808080"
                         android:inputType="numberDecimal"
                         android:padding="14dp"
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp" />
+
+                        android:textSize="14sp"
+                        style="@style/InputStyle"/>
 
                 </LinearLayout>
 
@@ -222,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Descripción"
-                android:textColor="#29ABE2"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -231,44 +195,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
-                android:background="#111827"
                 android:gravity="top"
                 android:hint="Ej. Arroz blanco de grano largo, bolsa 500g"
-                android:textColorHint="@color/white"
+                android:textColorHint="#808080"
                 android:inputType="textMultiLine"
                 android:minLines="3"
                 android:padding="14dp"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                style="@style/InputStyle"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="Proveedor"
-                android:textColor="#29ABE2"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etSupplier"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="18dp"
-                android:background="#111827"
-                android:hint="Ej. Distribuidora El Sur"
-                android:textColorHint="@color/white"
-                android:inputType="textCapWords"
-                android:padding="14dp"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:text="Stock mínimo de alerta"
-                android:textColor="#29ABE2"
+                android:textColor="@color/white"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
@@ -277,19 +219,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:background="#111827"
                 android:hint="Ej. 5"
-                android:textColorHint="@color/white"
+                android:textColorHint="#808080"
                 android:inputType="number"
                 android:padding="14dp"
-                android:textColor="#FFFFFF"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                style="@style/InputStyle"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:background="#111827"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:paddingStart="12dp"
@@ -297,8 +237,9 @@
                 android:paddingEnd="12dp"
                 android:paddingBottom="8dp"
                 android:text="⚡ Recibirás una alerta cuando el stock baje de este límite"
-                android:textColor="#29ABE2"
-                android:textSize="11sp" />
+                android:textColor="@color/white"
+                android:textSize="11sp"
+                style="@style/InputStyle"/>
 
             <View
                 android:layout_width="match_parent"
@@ -314,7 +255,7 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="90dp"
-        android:background="#111827"
+        android:background="@drawable/fondo_tarjeta"
         android:orientation="horizontal"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
