@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.innovacode_proyecto1.Compras.Content.ComprasActivity
+import com.example.innovacode_proyecto1.ComprasActivity
 import com.example.innovacode_proyecto1.R
 
 class CompraAdapter(private var lista: List<ComprasActivity.Compra>) :

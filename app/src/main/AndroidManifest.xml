@@ -54,7 +54,7 @@
             android:name=".Ventas.Content.MainVentas"
             android:exported="false" />
         <activity
-            android:name=".Compras.Content.ComprasActivity"
+            android:name=".ComprasActivity"
             android:exported="false" />
         <activity
             android:name=".auth.ui.SplashActivity"

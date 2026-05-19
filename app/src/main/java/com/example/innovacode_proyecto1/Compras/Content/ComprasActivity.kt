@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.app.DatePickerDialog
+import com.example.innovacode_proyecto1.Compras.Adapter.CompraAdapter
 import java.util.Calendar
 
 class ComprasActivity : AppCompatActivity() {

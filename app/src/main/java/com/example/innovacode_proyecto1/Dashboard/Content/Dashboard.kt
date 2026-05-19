@@ -1,8 +1,7 @@
 package com.example.innovacode_proyecto1.Dashboard.Content
 import com.example.innovacode_proyecto1.Inventario.Content.Inventario
-import com.example.innovacode_proyecto1.ComprasActivity
 import com.example.innovacode_proyecto1.Perfil.Content.Perfil
-import com.example.innovacode_proyecto1.MainVentas
+import com.example.innovacode_proyecto1.Ventas.Content.MainVentas
 
 
 import android.os.Bundle
@@ -18,6 +17,7 @@ import android.widget.TextView
 import com.google.firebase.firestore.FirebaseFirestore
 import android.view.View
 import android.widget.LinearLayout
+import com.example.innovacode_proyecto1.ComprasActivity
 import com.example.innovacode_proyecto1.Reportes.Content.Reportes
 import com.example.innovacode_proyecto1.alertas.Content.Alertas
 

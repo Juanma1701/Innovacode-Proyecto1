@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.example.innovacode_proyecto1.MainVentas
+import com.example.innovacode_proyecto1.Ventas.Content.MainVentas
 import com.example.innovacode_proyecto1.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
