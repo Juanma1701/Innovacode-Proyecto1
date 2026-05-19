@@ -18,6 +18,14 @@
             android:orientation="vertical"
             android:padding="28dp">
 
+            <ImageButton
+                android:id="@+id/btnBack1"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/ic_flecha_atras"
+                android:contentDescription="Volver"
+                app:tint="#94A3B8" />
+
             <!-- Título -->
             <TextView
                 android:layout_width="wrap_content"
@@ -26,6 +34,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold"
+                android:layout_gravity="center"
                 android:layout_marginBottom="20dp"/>
 
             <!-- Tarjeta -->

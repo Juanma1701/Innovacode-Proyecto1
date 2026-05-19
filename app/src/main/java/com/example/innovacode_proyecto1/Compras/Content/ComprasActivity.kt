@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.app.DatePickerDialog
+import android.content.Intent
 import com.example.innovacode_proyecto1.Compras.Adapter.CompraAdapter
+import com.example.innovacode_proyecto1.Dashboard.Content.Dashboard
 import java.util.Calendar
 
 class ComprasActivity : AppCompatActivity() {
@@ -68,6 +70,7 @@ class ComprasActivity : AppCompatActivity() {
 
             datePicker.show()
         }
+        val btnback = findViewById< ImageButton>(R.id.btnBack1)
 
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrarCompra)
 
@@ -131,6 +134,11 @@ class ComprasActivity : AppCompatActivity() {
         spProducto.onItemSelectedListener = listener
         spProveedor.onItemSelectedListener = listener
         spFecha.onItemSelectedListener = listener
+
+        btnback.setOnClickListener {
+            val intent = Intent(this, Dashboard::class.java)
+            startActivity(intent)
+        }
 
         // 🔹 Botones limpiar
         btnClearProducto.setOnClickListener { spProducto.setSelection(0) }

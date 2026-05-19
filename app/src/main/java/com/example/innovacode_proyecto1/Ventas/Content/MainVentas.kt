@@ -1,6 +1,7 @@
 package com.example.innovacode_proyecto1.Ventas.Content
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.innovacode_proyecto1.Dashboard.Content.Dashboard
 import com.example.innovacode_proyecto1.R
 import com.example.innovacode_proyecto1.Ventas.Adapter.VentaAdapter
 import java.util.Calendar
@@ -81,6 +83,8 @@ class MainVentas : AppCompatActivity() {
             datePicker.show()
         }
 
+        val btnback = findViewById< ImageButton>(R.id.btpatras)
+
         val spProducto = findViewById<Spinner>(R.id.spProductoVenta)
         val spCliente = findViewById<Spinner>(R.id.spCliente)
         val spFecha = findViewById<Spinner>(R.id.spFechaVenta)
@@ -145,6 +149,11 @@ class MainVentas : AppCompatActivity() {
             }
 
             adapter.actualizarLista(listaFiltrada)
+        }
+
+        btnback.setOnClickListener {
+            val intent = Intent(this, Dashboard::class.java)
+            startActivity(intent)
         }
 
         // 🔹 Botón registrar
