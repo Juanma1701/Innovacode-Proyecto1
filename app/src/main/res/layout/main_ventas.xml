@@ -155,7 +155,7 @@
                     android:layout_marginBottom="8dp">
 
                     <Spinner
-                        android:id="@+id/spProductoVenta2"
+                        android:id="@+id/c"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
