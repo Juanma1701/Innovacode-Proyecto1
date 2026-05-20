@@ -19,7 +19,6 @@
         android:paddingTop="48dp"
         android:paddingBottom="40dp">
 
-        <!-- ══ Botón volver ══ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +36,6 @@
                 android:padding="10dp" />
         </LinearLayout>
 
-        <!-- ══ Ícono ══ -->
         <LinearLayout
             android:layout_width="72dp"
             android:layout_height="72dp"
@@ -53,7 +51,6 @@
                 app:tint="#FFFFFF" />
         </LinearLayout>
 
-        <!-- ══ Título ══ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +70,6 @@
             android:gravity="center"
             android:layout_marginBottom="32dp" />
 
-        <!-- ══ Tarjeta ══ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -85,7 +81,6 @@
             android:paddingBottom="24dp"
             android:elevation="8dp">
 
-            <!-- ── Label: Correo ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,7 +91,6 @@
                 android:letterSpacing="0.10"
                 android:layout_marginBottom="8dp" />
 
-            <!-- ── Campo: Correo ── -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
@@ -130,7 +124,6 @@
                     android:autofillHints="emailAddress" />
             </LinearLayout>
 
-            <!-- ── Botón: Enviar enlace ── -->
             <Button
                 android:id="@+id/btnEnviarEnlace"
                 android:layout_width="match_parent"
@@ -145,7 +138,6 @@
 
         </LinearLayout>
 
-        <!-- ══ Mensaje de confirmación (oculto por defecto) ══ -->
         <LinearLayout
             android:id="@+id/layoutConfirmacion"
             android:layout_width="match_parent"
@@ -188,7 +180,6 @@
 
         </LinearLayout>
 
-        <!-- ══ Volver al login ══ -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -7,7 +7,6 @@
     android:gravity="center"
     android:background="#0A0A0F">
 
-    <!-- ══ Logo ══ -->
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="130dp"
@@ -18,7 +17,6 @@
         android:alpha="0"
         android:layout_marginBottom="20dp" />
 
-    <!-- ══ Nombre ══ -->
     <TextView
         android:id="@+id/tvNombre"
         android:layout_width="wrap_content"
@@ -31,7 +29,6 @@
         android:alpha="0"
         android:layout_marginBottom="8dp" />
 
-    <!-- ══ Slogan ══ -->
     <TextView
         android:id="@+id/tvSlogan"
         android:layout_width="wrap_content"
@@ -41,7 +38,6 @@
         android:textSize="14sp"
         android:alpha="0" />
 
-    <!-- ══ ProgressBar abajo ══ -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="48dp"

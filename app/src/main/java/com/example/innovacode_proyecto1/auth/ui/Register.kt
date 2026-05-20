@@ -20,7 +20,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class Register : AppCompatActivity() {
 
-    // ── Vistas ────────────────────────────────────────────────────────────────
     private lateinit var etNombreUsuario: EditText
     private lateinit var spinnerTipoDocumento: Spinner
     private lateinit var etNumeroDocumento: EditText
@@ -34,22 +33,18 @@ class Register : AppCompatActivity() {
     private lateinit var btnCancelar: Button
     private lateinit var tvIniciarSesion: TextView
 
-    // ── Firebase ──────────────────────────────────────────────────────────────
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
 
-    // ── Estado ────────────────────────────────────────────────────────────────
     private var contrasenaVisible          = false
     private var confirmarContrasenaVisible = false
 
-    // ─────────────────────────────────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         window.statusBarColor = resources.getColor(android.R.color.black, null)
 
-        // Inicializar Firebase
         auth = FirebaseAuth.getInstance()
         db   = FirebaseFirestore.getInstance()
 
@@ -58,7 +53,6 @@ class Register : AppCompatActivity() {
         configurarListeners()
     }
 
-    // ── Inicializar vistas ────────────────────────────────────────────────────
     private fun inicializarVistas() {
         etNombreUsuario           = findViewById(R.id.etNombreUsuario)
         spinnerTipoDocumento      = findViewById(R.id.spinnerTipoDocumento)
@@ -74,7 +68,6 @@ class Register : AppCompatActivity() {
         tvIniciarSesion           = findViewById(R.id.tvIniciarSesion)
     }
 
-    // ── Configurar Spinner ────────────────────────────────────────────────────
     private fun configurarSpinner() {
         val tipos = listOf(
             "Selecciona el tipo",
@@ -121,7 +114,6 @@ class Register : AppCompatActivity() {
         spinnerTipoDocumento.adapter = adaptador
     }
 
-    // ── Configurar listeners ──────────────────────────────────────────────────
     private fun configurarListeners() {
 
         btnVerContrasena.setOnClickListener {
@@ -158,7 +150,6 @@ class Register : AppCompatActivity() {
         }
     }
 
-    // ── Registro en Firebase ──────────────────────────────────────────────────
     private fun registrarEnFirebase(
         nombre: String,
         tipoDoc: Int,
@@ -167,16 +158,13 @@ class Register : AppCompatActivity() {
         correo: String,
         contrasena: String
     ) {
-        // Deshabilitar botón mientras procesa
         btnCrearCuenta.isEnabled = false
         btnCrearCuenta.text = "Creando cuenta..."
 
-        // 1. Crear usuario en Firebase Authentication
         auth.createUserWithEmailAndPassword(correo, contrasena)
             .addOnSuccessListener { resultado ->
                 val uid = resultado.user?.uid ?: return@addOnSuccessListener
 
-                // 2. Guardar datos adicionales en Firestore
                 val tipoDocNombre = spinnerTipoDocumento.getItemAtPosition(tipoDoc).toString()
 
                 val datosUsuario = hashMapOf(
@@ -222,7 +210,6 @@ class Register : AppCompatActivity() {
             }
     }
 
-    // ── Alternar visibilidad ──────────────────────────────────────────────────
     private fun alternarVisibilidad(campo: EditText, boton: ImageButton, visible: Boolean) {
         if (visible) {
             campo.transformationMethod = HideReturnsTransformationMethod.getInstance()
@@ -234,7 +221,6 @@ class Register : AppCompatActivity() {
         campo.setSelection(campo.text.length)
     }
 
-    // ── Validar campos ────────────────────────────────────────────────────────
     private fun validarCampos(
         nombre: String, tipoDoc: Int, numDoc: String,
         telefono: String, correo: String, contrasena: String, confirmar: String

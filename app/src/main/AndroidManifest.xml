@@ -57,6 +57,9 @@
             android:name=".ComprasActivity"
             android:exported="false" />
         <activity
+            android:name=".auth.ui.RecuperarContrasena"
+            android:exported="false" />
+        <activity
             android:name=".auth.ui.SplashActivity"
             android:exported="true">
             <intent-filter>

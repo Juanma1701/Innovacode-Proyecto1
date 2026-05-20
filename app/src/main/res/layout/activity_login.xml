@@ -14,7 +14,6 @@
     android:paddingTop="24dp"
     android:paddingBottom="24dp">
 
-    <!-- ══ Logo Innovacode ══ -->
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -22,7 +21,6 @@
         android:contentDescription="Logo Innovacode"
         android:layout_marginBottom="14dp" />
 
-    <!-- ══ Nombre de la app ══ -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +31,6 @@
         android:letterSpacing="0.25"
         android:layout_marginBottom="6dp" />
 
-    <!-- ══ Título ══ -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -51,7 +48,6 @@
         android:textSize="13sp"
         android:layout_marginBottom="24dp" />
 
-    <!-- ══ Tarjeta del formulario ══ -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +59,6 @@
         android:paddingBottom="20dp"
         android:elevation="8dp">
 
-        <!-- ── Label: Correo ── -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,7 +69,6 @@
             android:letterSpacing="0.10"
             android:layout_marginBottom="6dp" />
 
-        <!-- ── Campo: Correo ── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -108,7 +102,6 @@
                 android:autofillHints="emailAddress" />
         </LinearLayout>
 
-        <!-- ── Label: Contraseña ── -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,7 +112,6 @@
             android:letterSpacing="0.10"
             android:layout_marginBottom="6dp" />
 
-        <!-- ── Campo: Contraseña ── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -164,7 +156,6 @@
                 android:padding="10dp" />
         </LinearLayout>
 
-        <!-- ── ¿Olvidaste tu contraseña? ── -->
         <TextView
             android:id="@+id/tvOlvideContrasena"
             android:layout_width="wrap_content"
@@ -176,7 +167,6 @@
             android:layout_gravity="end"
             android:layout_marginBottom="20dp" />
 
-        <!-- ── Botón: Iniciar Sesión ── -->
         <Button
             android:id="@+id/btnIniciarSesion"
             android:layout_width="match_parent"
@@ -190,7 +180,6 @@
             android:stateListAnimator="@null"
             android:layout_marginBottom="12dp" />
 
-        <!-- ── Divisor ── -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -218,7 +207,6 @@
                 android:background="#1E1E35" />
         </LinearLayout>
 
-        <!-- ── Botón: Google ── -->
         <Button
             android:id="@+id/btnGoogle"
             android:layout_width="match_parent"
@@ -232,7 +220,6 @@
 
     </LinearLayout>
 
-    <!-- ══ ¿No tienes cuenta? Crear cuenta ══ -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -17,7 +17,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 class RecuperarContrasena : AppCompatActivity() {
 
-    // ── Vistas ────────────────────────────────────────────────────────────────
     private lateinit var btnVolver: ImageButton
     private lateinit var etCorreo: EditText
     private lateinit var btnEnviarEnlace: Button
@@ -25,10 +24,8 @@ class RecuperarContrasena : AppCompatActivity() {
     private lateinit var tvCorreoEnviado: TextView
     private lateinit var tvVolverLogin: TextView
 
-    // ── Firebase ──────────────────────────────────────────────────────────────
     private lateinit var auth: FirebaseAuth
 
-    // ─────────────────────────────────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recuperar_contrasena)
@@ -40,13 +37,11 @@ class RecuperarContrasena : AppCompatActivity() {
         inicializarVistas()
         configurarListeners()
 
-        // Quitar foco al abrir
         window.decorView.clearFocus()
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(window.decorView.windowToken, 0)
     }
 
-    // ── Inicializar vistas ────────────────────────────────────────────────────
     private fun inicializarVistas() {
         btnVolver          = findViewById(R.id.btnVolver)
         etCorreo           = findViewById(R.id.etCorreo)
@@ -56,15 +51,12 @@ class RecuperarContrasena : AppCompatActivity() {
         tvVolverLogin      = findViewById(R.id.tvVolverLogin)
     }
 
-    // ── Configurar listeners ──────────────────────────────────────────────────
     private fun configurarListeners() {
 
-        // Volver atrás
         btnVolver.setOnClickListener {
             finish()
         }
 
-        // Enviar enlace de recuperación
         btnEnviarEnlace.setOnClickListener {
             val correo = etCorreo.text.toString().trim()
 
@@ -73,7 +65,6 @@ class RecuperarContrasena : AppCompatActivity() {
             }
         }
 
-        // Volver al login
         tvVolverLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
@@ -82,7 +73,6 @@ class RecuperarContrasena : AppCompatActivity() {
         }
     }
 
-    // ── Validar correo ────────────────────────────────────────────────────────
     private fun validarCorreo(correo: String): Boolean {
         when {
             correo.isEmpty() -> {
@@ -99,7 +89,6 @@ class RecuperarContrasena : AppCompatActivity() {
         return true
     }
 
-    // ── Enviar enlace de recuperación con Firebase ────────────────────────────
     private fun enviarEnlaceRecuperacion(correo: String) {
         btnEnviarEnlace.isEnabled = false
         btnEnviarEnlace.text = "Enviando..."

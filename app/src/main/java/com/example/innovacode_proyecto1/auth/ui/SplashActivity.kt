@@ -38,7 +38,6 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun iniciarAnimaciones() {
-        // Logo aparece primero
         imgLogo.animate()
             .alpha(1f)
             .scaleX(1f)
@@ -46,7 +45,7 @@ class SplashActivity : AppCompatActivity() {
             .setDuration(700)
             .setStartDelay(200)
             .withEndAction {
-                // Nombre aparece después del logo
+
                 tvNombre.animate()
                     .alpha(1f)
                     .translationY(0f)
@@ -54,7 +53,6 @@ class SplashActivity : AppCompatActivity() {
                     .setStartDelay(100)
                     .start()
 
-                // Slogan aparece después del nombre
                 tvSlogan.animate()
                     .alpha(1f)
                     .translationY(0f)
@@ -75,7 +73,6 @@ class SplashActivity : AppCompatActivity() {
             }
             .start()
 
-        // Posición inicial para animación de entrada
         tvNombre.translationY = 30f
         tvSlogan.translationY = 30f
     }
@@ -83,9 +80,6 @@ class SplashActivity : AppCompatActivity() {
     private fun navegarSiguientePantalla() {
         window.decorView.postDelayed({
             val intent = if (auth.currentUser != null) {
-                // Si hay sesión activa → ir al home
-                // Intent(this, HomeActivity::class.java)
-                // Por ahora va al Login hasta que tengas el home listo
                 Intent(this, Dashboard::class.java)
             } else {
                 Intent(this, Login::class.java)
