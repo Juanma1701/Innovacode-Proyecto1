@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">innovacode_proyecto1</string>
+    <string name="app_name">NovaCore</string>
 
     <string-array name="tipos_documento">
         <item>Selecciona el tipo</item>
