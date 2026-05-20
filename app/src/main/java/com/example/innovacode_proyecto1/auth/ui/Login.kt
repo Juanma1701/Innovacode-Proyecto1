@@ -59,11 +59,9 @@ class Login : AppCompatActivity() {
 
         window.statusBarColor = resources.getColor(android.R.color.black, null)
 
-        // Inicializar Firebase
         auth = FirebaseAuth.getInstance()
         db   = FirebaseFirestore.getInstance()
 
-        // Si ya hay sesión activa, ir directo al home
         if (auth.currentUser != null) {
             auth.signOut()
         }
@@ -98,7 +96,6 @@ class Login : AppCompatActivity() {
 
     private fun configurarListeners() {
 
-        // Ver / ocultar contraseña
         btnVerContrasena.setOnClickListener {
             contrasenaVisible = !contrasenaVisible
             if (contrasenaVisible) {

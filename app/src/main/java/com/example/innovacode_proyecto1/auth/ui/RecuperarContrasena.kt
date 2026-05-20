@@ -53,7 +53,6 @@ class RecuperarContrasena : AppCompatActivity() {
 
     private fun configurarListeners() {
 
-        // Volver atrás
         btnVolver.setOnClickListener {
             finish()
         }
@@ -66,7 +65,6 @@ class RecuperarContrasena : AppCompatActivity() {
             }
         }
 
-        // Volver al login
         tvVolverLogin.setOnClickListener {
             val intent = Intent(this, Login::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
