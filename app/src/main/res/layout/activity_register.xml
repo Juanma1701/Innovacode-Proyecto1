@@ -19,7 +19,6 @@
         android:paddingTop="40dp"
         android:paddingBottom="40dp">
 
-        <!-- ══ Logo Innovacode ══ -->
         <ImageView
             android:layout_width="72dp"
             android:layout_height="72dp"
@@ -27,7 +26,6 @@
             android:contentDescription="Logo Innovacode"
             android:layout_marginBottom="10dp" />
 
-        <!-- ══ Nombre de la app ══ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +36,6 @@
             android:letterSpacing="0.25"
             android:layout_marginBottom="16dp" />
 
-        <!-- ══ Título ══ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +53,6 @@
             android:textSize="13sp"
             android:layout_marginBottom="28dp" />
 
-        <!-- ══ Tarjeta ══ -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,7 +64,6 @@
             android:paddingBottom="24dp"
             android:elevation="8dp">
 
-            <!-- ── Nombre de usuario ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -112,7 +107,6 @@
                     android:autofillHints="username" />
             </LinearLayout>
 
-            <!-- ── Tipo de documento ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -150,7 +144,6 @@
                     android:entries="@array/tipos_documento" />
             </LinearLayout>
 
-            <!-- ── Número de documento ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -193,7 +186,6 @@
                     android:imeOptions="actionNext" />
             </LinearLayout>
 
-            <!-- ── Teléfono ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -237,7 +229,6 @@
                     android:autofillHints="phoneNumber" />
             </LinearLayout>
 
-            <!-- ── Correo ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -281,7 +272,6 @@
                     android:autofillHints="emailAddress" />
             </LinearLayout>
 
-            <!-- ── Contraseña ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -336,7 +326,6 @@
                     android:padding="10dp" />
             </LinearLayout>
 
-            <!-- ── Confirmar contraseña ── -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -391,7 +380,6 @@
                     android:padding="10dp" />
             </LinearLayout>
 
-            <!-- ── Botón: Crear Cuenta ── -->
             <Button
                 android:id="@+id/btnCrearCuenta"
                 android:layout_width="match_parent"
@@ -405,7 +393,6 @@
                 android:stateListAnimator="@null"
                 android:layout_marginBottom="14dp" />
 
-            <!-- ── Botón: Cancelar ── -->
             <Button
                 android:id="@+id/btnCancelar"
                 android:layout_width="match_parent"
@@ -419,7 +406,6 @@
 
         </LinearLayout>
 
-        <!-- ══ ¿Ya tienes cuenta? ══ -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

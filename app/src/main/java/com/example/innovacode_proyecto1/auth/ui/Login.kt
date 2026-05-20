@@ -25,7 +25,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class Login : AppCompatActivity() {
 
-    // ── Vistas ────────────────────────────────────────────────────────────────
     private lateinit var etCorreo: EditText
     private lateinit var etContrasena: EditText
     private lateinit var btnVerContrasena: ImageButton
@@ -34,15 +33,12 @@ class Login : AppCompatActivity() {
     private lateinit var btnGoogle: Button
     private lateinit var tvCrearCuenta: TextView
 
-    // ── Firebase ──────────────────────────────────────────────────────────────
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseFirestore
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    // ── Estado ────────────────────────────────────────────────────────────────
     private var contrasenaVisible = false
 
-    // ── Launcher para Google Sign-In ──────────────────────────────────────────
     private val googleSignInLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
@@ -57,7 +53,6 @@ class Login : AppCompatActivity() {
         }
     }
 
-    // ─────────────────────────────────────────────────────────────────────────
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -77,13 +72,11 @@ class Login : AppCompatActivity() {
         inicializarVistas()
         configurarListeners()
 
-        // ── Fix: quitar foco y teclado al abrir la pantalla ──────────────────
         window.decorView.clearFocus()
         val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(window.decorView.windowToken, 0)
     }
 
-    // ── Configurar Google Sign-In ─────────────────────────────────────────────
     private fun configurarGoogleSignIn() {
         val opciones = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("TU_WEB_CLIENT_ID_AQUI")
@@ -93,7 +86,6 @@ class Login : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, opciones)
     }
 
-    // ── Inicializar vistas ────────────────────────────────────────────────────
     private fun inicializarVistas() {
         etCorreo           = findViewById(R.id.etCorreo)
         etContrasena       = findViewById(R.id.etContrasena)
@@ -104,7 +96,6 @@ class Login : AppCompatActivity() {
         tvCrearCuenta      = findViewById(R.id.tvCrearCuenta)
     }
 
-    // ── Configurar listeners ──────────────────────────────────────────────────
     private fun configurarListeners() {
 
         // Ver / ocultar contraseña
@@ -122,7 +113,6 @@ class Login : AppCompatActivity() {
             etContrasena.setSelection(etContrasena.text.length)
         }
 
-        // Iniciar sesión con correo
         btnIniciarSesion.setOnClickListener {
             val correo     = etCorreo.text.toString().trim()
             val contrasena = etContrasena.text.toString().trim()
@@ -131,12 +121,10 @@ class Login : AppCompatActivity() {
             }
         }
 
-        // Olvidé contraseña
         tvOlvideContrasena.setOnClickListener {
             startActivity(Intent(this, RecuperarContrasena::class.java))
         }
 
-        // Iniciar sesión con Google
         btnGoogle.setOnClickListener {
             btnGoogle.isEnabled = false
             btnGoogle.text = "Conectando con Google..."
@@ -144,13 +132,11 @@ class Login : AppCompatActivity() {
             googleSignInLauncher.launch(intent)
         }
 
-        // Ir a Registro
         tvCrearCuenta.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
         }
     }
 
-    // ── Autenticar con Google en Firebase ────────────────────────────────────
     private fun autenticarConGoogle(idToken: String) {
         val credencial = GoogleAuthProvider.getCredential(idToken, null)
 
@@ -190,7 +176,6 @@ class Login : AppCompatActivity() {
             }
     }
 
-    // ── Iniciar sesión con Firebase correo/contraseña ─────────────────────────
     private fun iniciarSesionFirebase(correo: String, contrasena: String) {
         btnIniciarSesion.isEnabled = false
         btnIniciarSesion.text = "Iniciando sesión..."
@@ -220,40 +205,6 @@ class Login : AppCompatActivity() {
             }
     }
 
-    // ── Recuperar contraseña ──────────────────────────────────────────────────
-    private fun recuperarContrasena() {
-        val correo = etCorreo.text.toString().trim()
-
-        if (correo.isEmpty()) {
-            etCorreo.error = "Ingresa tu correo para recuperar la contraseña"
-            etCorreo.requestFocus()
-            return
-        }
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
-            etCorreo.error = "Ingresa un correo válido"
-            etCorreo.requestFocus()
-            return
-        }
-
-        auth.sendPasswordResetEmail(correo)
-            .addOnSuccessListener {
-                Toast.makeText(
-                    this,
-                    "Se envió un correo de recuperación a $correo",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(
-                    this,
-                    "No se encontró una cuenta con ese correo",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-    }
-
-    // ── Validar campos ────────────────────────────────────────────────────────
     private fun validarCampos(correo: String, contrasena: String): Boolean {
         when {
             correo.isEmpty() -> {
