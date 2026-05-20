@@ -51,7 +51,7 @@ class MainVentas : AppCompatActivity() {
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrarVenta)
         val btnback      = findViewById<ImageButton>(R.id.btpatras)
 
-        spProducto = findViewById(R.id.spProductoVenta)
+        spProducto = findViewById(R.id.spProductoVenta2)
         spCliente  = findViewById(R.id.spCliente)
         spFecha    = findViewById(R.id.spFechaVenta)
 
