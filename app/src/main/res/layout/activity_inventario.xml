@@ -74,12 +74,21 @@
         android:paddingBottom="6dp"
         app:layout_constraintTop_toBottomOf="@id/tvSubtitle">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            app:iconifiedByDefault="false"
-            app:queryHint="Buscar producto..." />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_lupa" />
+
+        <EditText
+            android:id="@+id/etBuscar"
+            android:layout_width="350dp"
+            android:layout_height="40dp"
+            android:hint="Escriba el producto que quiere buscar"
+            android:textColorHint="#555565"
+            android:textColor="#FFFFFF"/>
 
     </LinearLayout>
 

@@ -7,6 +7,7 @@ import com.example.innovacode_proyecto1.register_entrada_producto.Content.Regist
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,12 +19,15 @@ import com.example.innovacode_proyecto1.R
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
+import androidx.core.graphics.toColorInt
+import androidx.core.widget.addTextChangedListener
 import com.example.innovacode_proyecto1.register_salida_producto.Content.Register_Salida_Producto
 
 
 class Inventario : AppCompatActivity() {
     private val db = FirebaseFirestore.getInstance()
     private lateinit var adapter: ProductoAdapter
+    private val listaProductos = mutableListOf<Map<String, Any>>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,6 +40,7 @@ class Inventario : AppCompatActivity() {
 
         val btnback = findViewById< ImageButton>(R.id.btnBack)
         val btnaddproducto = findViewById<Button>(R.id.btnAddProduct)
+        val etBuscar = findViewById<EditText>(R.id.etBuscar)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerProducts) // ajusta el ID a tu XML
         adapter = ProductoAdapter(
@@ -66,6 +71,24 @@ class Inventario : AppCompatActivity() {
             startActivity(intent)
         }
         cargarInventario()
+
+        etBuscar.addTextChangedListener { texto ->
+            filtrarPorNombre(texto.toString().trim())
+        }
+
+    }
+    private fun filtrarPorNombre(query: String) {
+        if (query.isEmpty()) {
+            adapter.actualizarLista(listaProductos)
+            return
+        }
+
+        val filtrados = listaProductos.filter { producto ->
+            val nombre = producto["nombre_producto"]?.toString() ?: ""
+            nombre.contains(query, ignoreCase = true)
+        }
+
+        adapter.actualizarLista(filtrados)
     }
     private fun cargarInventario() {
         db.collection("inventario")
@@ -77,6 +100,8 @@ class Inventario : AppCompatActivity() {
                     data["id"] = doc.id
                     data
                 }
+                listaProductos.clear()
+                listaProductos.addAll(lista)
                 adapter.actualizarLista(lista)
             }
             .addOnFailureListener { e ->
@@ -85,6 +110,6 @@ class Inventario : AppCompatActivity() {
     }
     override fun onResume() {
         super.onResume()
-        cargarInventario() // recarga la lista cada vez que vuelves a esta pantalla
+        cargarInventario()
     }
 }

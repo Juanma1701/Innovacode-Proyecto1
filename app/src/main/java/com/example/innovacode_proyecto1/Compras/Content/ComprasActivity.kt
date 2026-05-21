@@ -2,8 +2,10 @@ package com.example.innovacode_proyecto1
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -94,6 +96,13 @@ class ComprasActivity : AppCompatActivity() {
 
         btnRegistrar.setOnClickListener {
             val nombreProducto = spProductoCompra.selectedItem?.toString() ?: ""
+
+            // Validación añadida por seguridad para no registrar el texto "Seleccionar Producto"
+            if (nombreProducto == "Seleccionar Producto") {
+                Toast.makeText(this, "Por favor, seleccione un producto válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val productoId     = mapaProductos[nombreProducto] ?: ""
             val proveedor      = etProveedor.text.toString().trim()
             val cantidad       = etCantidad.text.toString().toIntOrNull() ?: 0
@@ -119,6 +128,7 @@ class ComprasActivity : AppCompatActivity() {
             etCantidad.text.clear()
             etPrecio.text.clear()
             etFecha.text.clear()
+            spProductoCompra.setSelection(0) // Resetea el spinner principal al Hint por defecto
         }
 
         cargarProductosEnSpinner()
@@ -131,15 +141,18 @@ class ComprasActivity : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documentos ->
                 mapaProductos.clear()
-                val nombres = mutableListOf<String>()
+
+
+                val nombres = mutableListOf("Seleccionar Producto")
+
                 for (doc in documentos) {
                     val nombre = doc.getString("nombre_producto") ?: continue
                     mapaProductos[nombre] = doc.id
                     nombres.add(nombre)
                 }
-                spProductoCompra.adapter = ArrayAdapter(
-                    this, android.R.layout.simple_spinner_item, nombres
-                )
+
+
+                configurarSpinnerConEstilo(spProductoCompra, nombres)
             }
     }
 
@@ -151,7 +164,6 @@ class ComprasActivity : AppCompatActivity() {
         precio: Double,
         fecha: String
     ) {
-        // 1. Crea documento en /compras
         val compra = hashMapOf(
             "nombre_producto"  to nombreProducto,
             "nombre_proveedor" to proveedor,
@@ -166,7 +178,6 @@ class ComprasActivity : AppCompatActivity() {
         db.collection("compras").add(compra)
             .addOnSuccessListener {
 
-                // 2. Actualiza cantidad en /inventario
                 db.collection("inventario").document(productoId)
                     .update(
                         "cantidad", FieldValue.increment(cantidad.toLong()),
@@ -174,7 +185,6 @@ class ComprasActivity : AppCompatActivity() {
                         "fecha_ultimo_movimiento", Timestamp.now()
                     )
 
-                // 3. Crea movimiento en subcolección
                 val movimiento = hashMapOf(
                     "tipo"     to "entrada",
                     "cantidad" to cantidad.toLong(),
@@ -219,14 +229,15 @@ class ComprasActivity : AppCompatActivity() {
             }
     }
 
+    // Se modificó para heredar los estilos oscuros y limpios en los Spinners de filtrado
     fun cargarFiltros() {
         val productos   = listOf("Todos") + listaCompras.map { it.producto }.distinct()
         val proveedores = listOf("Todos") + listaCompras.map { it.proveedor }.distinct()
         val fechas      = listOf("Todos") + listaCompras.map { it.fecha }.distinct()
 
-        spProducto.adapter  = ArrayAdapter(this, android.R.layout.simple_spinner_item, productos)
-        spProveedor.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, proveedores)
-        spFecha.adapter     = ArrayAdapter(this, android.R.layout.simple_spinner_item, fechas)
+        configurarSpinnerConEstilo(spProducto, productos)
+        configurarSpinnerConEstilo(spProveedor, proveedores)
+        configurarSpinnerConEstilo(spFecha, fechas)
     }
 
     fun filtrar() {
@@ -245,5 +256,36 @@ class ComprasActivity : AppCompatActivity() {
             }
         }
         adapter.actualizarLista(listaFiltrada)
+    }
+
+    private fun configurarSpinnerConEstilo(spinner: Spinner, items: List<String>) {
+        val adapter = object : ArrayAdapter<String>(
+            this,
+            android.R.layout.simple_spinner_item,
+            items
+        ) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent) as TextView
+                if (position == 0) {
+                    view.setTextColor(Color.parseColor("#555565")) //
+                } else {
+                    view.setTextColor(Color.WHITE)
+                }
+                return view
+            }
+
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getDropDownView(position, convertView, parent) as TextView
+                view.setBackgroundColor(Color.parseColor("#12121A"))
+                if (position == 0) {
+                    view.setTextColor(Color.parseColor("#555565"))
+                } else {
+                    view.setTextColor(Color.WHITE)
+                }
+                return view
+            }
+        }
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
     }
 }

@@ -2,8 +2,10 @@ package com.example.innovacode_proyecto1.Ventas.Content
 
 import android.app.DatePickerDialog
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,7 +33,6 @@ class MainVentas : AppCompatActivity() {
     private val listaFiltrada = mutableListOf<Venta>()
     private lateinit var adapter: VentaAdapter
 
-    // Spinners a nivel de clase
     private lateinit var spProducto: Spinner
     private lateinit var spCliente: Spinner
     private lateinit var spFecha: Spinner
@@ -102,6 +103,12 @@ class MainVentas : AppCompatActivity() {
 
         btnRegistrar.setOnClickListener {
             val nombreProducto = spProductoVenta.selectedItem?.toString() ?: ""
+            // Validación por si deja el hint seleccionado
+            if (nombreProducto == "Seleccionar Producto") {
+                Toast.makeText(this, "Por favor, seleccione un producto válido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val productoId     = mapaProductos[nombreProducto] ?: ""
             val cliente  = etCliente.text.toString().trim()
             val cantidad = etCantidad.text.toString().toIntOrNull() ?: 0
@@ -119,11 +126,11 @@ class MainVentas : AppCompatActivity() {
 
             registrarVenta(nombreProducto, productoId, cliente, cantidad, precio, fecha)
 
-
             etCliente.text.clear()
             etCantidad.text.clear()
             etPrecio.text.clear()
             etFecha.text.clear()
+            spProductoVenta.setSelection(0) // Regresa al hint "Seleccionar Producto"
             spProducto.setSelection(0)
             spCliente.setSelection(0)
             spFecha.setSelection(0)
@@ -158,7 +165,7 @@ class MainVentas : AppCompatActivity() {
                     "precio_u"        to precio,
                     "precio_total"    to (cantidad * precio),
                     "fecha"           to fecha,
-                    "empresa_id"      to "empresa_demo",
+                    "empresa_id" to "empresa_demo",
                     "origen"          to "modulo_ventas"
                 )
 
@@ -215,14 +222,15 @@ class MainVentas : AppCompatActivity() {
             }
     }
 
+    // NUEVO CAMBIO AQUÍ: Asigna los adaptadores personalizados a tus filtros inferiores
     private fun cargarFiltros() {
         val productos = listOf("Todos") + listaVentas.map { it.producto }.distinct()
         val clientes  = listOf("Todos") + listaVentas.map { it.cliente }.distinct()
         val fechas    = listOf("Todos") + listaVentas.map { it.fecha }.distinct()
 
-        spProducto.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, productos)
-        spCliente.adapter  = ArrayAdapter(this, android.R.layout.simple_spinner_item, clientes)
-        spFecha.adapter    = ArrayAdapter(this, android.R.layout.simple_spinner_item, fechas)
+        configurarSpinnerConEstilo(spProducto, productos)
+        configurarSpinnerConEstilo(spCliente, clientes)
+        configurarSpinnerConEstilo(spFecha, fechas)
     }
 
     private fun filtrar() {
@@ -242,21 +250,65 @@ class MainVentas : AppCompatActivity() {
         }
         adapter.actualizarLista(listaFiltrada)
     }
+
+
     private fun cargarProductosEnSpinner() {
         db.collection("inventario")
             .whereEqualTo("empresa_id", "empresa_demo")
             .get()
             .addOnSuccessListener { documentos ->
                 mapaProductos.clear()
-                val nombres = mutableListOf<String>()
+
+
+                val nombres = mutableListOf("Seleccionar Producto")
+
                 for (doc in documentos) {
                     val nombre = doc.getString("nombre_producto") ?: continue
                     mapaProductos[nombre] = doc.id
                     nombres.add(nombre)
                 }
-                spProductoVenta.adapter = ArrayAdapter(
-                    this, android.R.layout.simple_spinner_item, nombres
-                )
+
+
+                configurarSpinnerConEstilo(spProductoVenta, nombres)
             }
+    }
+
+
+    private fun configurarSpinnerConEstilo(spinner: Spinner, items: List<String>) {
+        val adapter = object : ArrayAdapter<String>(
+            this,
+            android.R.layout.simple_spinner_item,
+            items
+        ) {
+
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent) as TextView
+
+
+                if (position == 0) {
+                    view.setTextColor(Color.parseColor("#555565"))
+                } else {
+                    view.setTextColor(Color.WHITE)
+                }
+                return view
+            }
+
+
+            override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getDropDownView(position, convertView, parent) as TextView
+
+
+                view.setBackgroundColor(Color.parseColor("#12121A"))
+
+                if (position == 0) {
+                    view.setTextColor(Color.parseColor("#555565"))
+                } else {
+                    view.setTextColor(Color.WHITE)
+                }
+                return view
+            }
+        }
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
     }
 }
