@@ -23,6 +23,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:background="@drawable/ic_flecha_atras"
+                android:layout_marginTop="10dp"
                 app:tint="#94A3B8" />
 
             <!-- Título -->

@@ -7,9 +7,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.content.Intent
 import com.example.innovacode_proyecto1.R
 import com.example.innovacode_proyecto1.adapter_reportes.Content.MovimientosAdapter
 import com.google.firebase.Timestamp
@@ -256,7 +258,14 @@ class Reportes : AppCompatActivity() {
                 e.printStackTrace()
                 mostrarEstadoVacio()
             }
+        findViewById<android.widget.Button>(R.id.btnVerGraficas).setOnClickListener {
+            startActivity(Intent(this, GraficasActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnExportar).setOnClickListener {
+            startActivity(Intent(this, ExportarActivity::class.java))
+        }
     }
+
 
     // ── HELPERS ──────────────────────────────────────────────────────────────
     private fun mostrarEstadoVacio() {

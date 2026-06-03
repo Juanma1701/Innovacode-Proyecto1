@@ -33,6 +33,22 @@
             android:name=".adapter_inventario.Content.adapterInventario"
             android:exported="false" />
         <activity
+            android:name=".recetas.RecetasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recetas.AgregarRecetaActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Reportes.Content.GraficasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Proveedores.Content.ProveedoresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Proveedores.Content.AgregarProveedorActivity"
+            android:exported="false" />
+        <activity
             android:name=".Perfil.Content.Perfil"
             android:exported="false" />
         <activity
@@ -59,6 +75,17 @@
         <activity
             android:name=".auth.ui.RecuperarContrasena"
             android:exported="false" />
+        <activity android:name=".Reportes.Content.ExportarActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_paths" />
+        </provider>
         <activity
             android:name=".auth.ui.SplashActivity"
             android:exported="true">

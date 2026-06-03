@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#0D0D1A"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/fondo_tarjeta"
+                android:src="@drawable/ic_flecha_atras"
+                android:contentDescription="Volver"
+                android:padding="8dp"
+                app:tint="#6C63FF"/>
+
+            <TextView
+                android:id="@+id/tvTituloFormulario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nuevo Proveedor"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </LinearLayout>
+
+        <!-- ÍCONO DECORATIVO -->
+        <TextView
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="🏭"
+            android:textSize="36sp"
+            android:background="@drawable/fondo_tarjeta"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- ETIQUETA SECCIÓN -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INFORMACIÓN DEL PROVEEDOR"
+            android:textColor="#B0B0CC"
+            android:textSize="11sp"
+            android:textAllCaps="true"
+            android:letterSpacing="0.12"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- CAMPO: Nombre -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre *"
+            android:textColor="#E0D0FF"
+            android:textSize="13sp"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etNombreProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/fondo_tarjeta"
+            android:hint="Ej: Distribuidora XYZ"
+            android:textColorHint="#666680"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="textCapWords"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- CAMPO: NIT -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NIT"
+            android:textColor="#E0D0FF"
+            android:textSize="13sp"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etNitProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/fondo_tarjeta"
+            android:hint="Ej: 900123456-7"
+            android:textColorHint="#666680"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="text"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- CAMPO: Contacto (teléfono) -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teléfono de contacto"
+            android:textColor="#E0D0FF"
+            android:textSize="13sp"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etContactoProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/fondo_tarjeta"
+            android:hint="Ej: 3001234567"
+            android:textColorHint="#666680"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="phone"
+            android:layout_marginBottom="14dp"/>
+
+        <!-- CAMPO: Email -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correo electrónico"
+            android:textColor="#E0D0FF"
+            android:textSize="13sp"
+            android:layout_marginBottom="6dp"/>
+
+        <EditText
+            android:id="@+id/etEmailProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/fondo_tarjeta"
+            android:hint="proveedor@ejemplo.com"
+            android:textColorHint="#666680"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- BOTÓN GUARDAR -->
+        <Button
+            android:id="@+id/btnGuardarProveedor"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/fondo_boton_violeta"
+            android:text="Guardar"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</ScrollView>

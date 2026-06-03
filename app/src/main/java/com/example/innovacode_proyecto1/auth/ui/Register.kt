@@ -87,9 +87,11 @@ class Register : AppCompatActivity() {
             override fun getView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
                 val vista = super.getView(position, convertView, parent)
                 val tv = vista.findViewById<TextView>(android.R.id.text1)
+                // Fondo oscuro para la vista cerrada del spinner
+                vista.setBackgroundColor(android.graphics.Color.parseColor("#0D0D1A"))
                 tv.setTextColor(
-                    if (position == 0) resources.getColor(android.R.color.darker_gray, null)
-                    else resources.getColor(android.R.color.white, null)
+                    if (position == 0) android.graphics.Color.parseColor("#3D3D5C")
+                    else android.graphics.Color.WHITE
                 )
                 tv.textSize = 14f
                 return vista
@@ -100,11 +102,13 @@ class Register : AppCompatActivity() {
             override fun getDropDownView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
                 val vista = super.getDropDownView(position, convertView, parent)
                 val tv = vista.findViewById<TextView>(android.R.id.text1)
+                // Fondo oscuro para cada ítem del dropdown
+                vista.setBackgroundColor(android.graphics.Color.parseColor("#13131F"))
                 tv.setTextColor(
-                    if (position == 0) resources.getColor(android.R.color.darker_gray, null)
-                    else resources.getColor(android.R.color.white, null)
+                    if (position == 0) android.graphics.Color.parseColor("#3D3D5C")
+                    else android.graphics.Color.WHITE
                 )
-                tv.setPadding(24, 20, 24, 20)
+                tv.setPadding(32, 24, 32, 24)
                 tv.textSize = 14f
                 return vista
             }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:background="@drawable/fondo_campo_dark"
+    android:gravity="center_vertical"
+    android:paddingStart="14dp"
+    android:paddingEnd="4dp"
+    android:layout_marginBottom="8dp">
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:src="@drawable/ic_numero_documento"
+        app:tint="#6C63FF"
+        android:contentDescription="Ingrediente"
+        android:layout_marginEnd="10dp" />
+
+    <TextView
+        android:id="@+id/tvNombreIngrediente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Ingrediente"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/tvCantidadIngrediente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 und"
+        android:textColor="#6C63FF"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="4dp" />
+
+    <ImageButton
+        android:id="@+id/btnEliminarIngrediente"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_eliminar"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#F87171"
+        android:padding="8dp"
+        android:contentDescription="Eliminar ingrediente" />
+
+</LinearLayout>
