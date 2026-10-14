@@ -16,7 +16,7 @@
         android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingBottom="16dp"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/btnlogo"
@@ -43,13 +43,12 @@
 
     </LinearLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="570dp"
+        android:layout_height="0dp"
         android:scrollbars="none"
-        app:layout_constraintBottom_toTopOf="@id/bottomBar"
-        app:layout_constraintTop_toBottomOf="@id/topBar">
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,6 +60,7 @@
             android:paddingBottom="12dp"
             android:background="#0A0A0F">
 
+            <!-- Nombre -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,16 +75,65 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
-                android:hint="Ej. Arroz 500g"
+                android:hint="Ej. Salsa de tomate"
                 android:textColorHint="#808080"
                 android:inputType="textCapSentences"
                 android:padding="14dp"
                 android:textSize="14sp"
                 style="@style/InputStyle"/>
 
+            <!-- ══ CÓDIGO DE BARRAS ══ -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="Código de barras"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="18dp">
+
+                <EditText
+                    android:id="@+id/etCodigoBarras"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"
+                    android:hint="Escanea o escribe el código"
+                    android:textColorHint="#808080"
+                    android:inputType="number"
+                    android:padding="14dp"
+                    android:textSize="14sp"
+                    style="@style/InputStyle"/>
+
+                <!-- Botón escáner -->
+                <ImageButton
+                    android:id="@+id/btnEscanearCodigo"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/ic_escaner"
+                    android:scaleType="fitCenter"
+                    android:padding="12dp"
+                    android:background="@drawable/fondo_boton_violeta"
+                    android:contentDescription="Escanear código"
+                    android:pointerIcon="hand"/>
+
+            </LinearLayout>
+
+            <!-- Cantidad + Unidad -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="18dp">
 
                 <LinearLayout
-                    android:layout_width="370dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"
@@ -103,7 +152,7 @@
                         android:id="@+id/etQuantity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Ej. 100"
+                        android:hint="Ej. 500"
                         android:textColorHint="#808080"
                         android:inputType="numberDecimal"
                         android:padding="14dp"
@@ -112,13 +161,47 @@
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Unidad de medida"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/fondo_campo_dark"
+                        android:padding="4dp">
+
+                        <Spinner
+                            android:id="@+id/spinnerUnidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:popupBackground="@drawable/fondo_tarjeta" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Categoría + Precio -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="18dp">
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -173,7 +256,6 @@
                         android:textColorHint="#808080"
                         android:inputType="numberDecimal"
                         android:padding="14dp"
-
                         android:textSize="14sp"
                         style="@style/InputStyle"/>
 
@@ -181,6 +263,7 @@
 
             </LinearLayout>
 
+            <!-- Descripción -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -196,7 +279,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="18dp"
                 android:gravity="top"
-                android:hint="Ej. Arroz blanco de grano largo, bolsa 500g"
+                android:hint="Descripción opcional"
                 android:textColorHint="#808080"
                 android:inputType="textMultiLine"
                 android:minLines="3"
@@ -204,7 +287,7 @@
                 android:textSize="14sp"
                 style="@style/InputStyle"/>
 
-
+            <!-- Stock mínimo -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,10 +301,10 @@
                 android:id="@+id/etMinStock"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="6dp"
                 android:hint="Ej. 5"
                 android:textColorHint="#808080"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:padding="14dp"
                 android:textSize="14sp"
                 style="@style/InputStyle"/>
@@ -230,13 +313,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:drawablePadding="8dp"
                 android:gravity="center_vertical"
                 android:paddingStart="12dp"
                 android:paddingTop="8dp"
                 android:paddingEnd="12dp"
                 android:paddingBottom="8dp"
-                android:text="⚡ Recibirás una alerta cuando el stock baje de este límite"
+                android:text="Recibirás una alerta cuando el stock baje de este límite"
                 android:textColor="@color/white"
                 android:textSize="11sp"
                 style="@style/InputStyle"/>
@@ -247,8 +329,95 @@
                 android:layout_marginBottom="20dp"
                 android:background="#3D2070" />
 
-        </LinearLayout>
+            <!-- Fecha de vencimiento (opcional) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/fondo_tarjeta"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="¿Tiene fecha de vencimiento?"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Solo para alimentos, lácteos, etc."
+                            android:textColor="#6B7280"
+                            android:textSize="11sp"
+                            android:layout_marginTop="2dp"/>
+
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/checkFechaVencimiento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="#6C63FF"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutFechaVencimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="14dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="Fecha de vencimiento"
+                        android:textColor="#A0A8C0"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnSeleccionarFecha"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:text="Seleccionar fecha"
+                        android:textColor="#A0A8C0"
+                        android:textSize="13sp"
+                        android:background="@drawable/fondo_campo_dark"
+                        android:stateListAnimator="@null"/>
+
+                    <TextView
+                        android:id="@+id/tvFechaSeleccionada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text=""
+                        android:textColor="#4ADE80"
+                        android:textSize="13sp"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
     </ScrollView>
 
     <LinearLayout
@@ -281,7 +450,7 @@
             android:layout_height="50dp"
             android:layout_weight="2"
             android:background="@drawable/fondo_confirmacion"
-            android:text="✓  Guardar "
+            android:text="Guardar"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />

@@ -1,13 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
     <style name="Base.Theme.InnovacodeProyecto1" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.InnovacodeProyecto1" parent="Base.Theme.InnovacodeProyecto1" />
+    <style name="Theme.InnovacodeProyecto1" parent="Base.Theme.InnovacodeProyecto1">
 
-    <!-- Tema para el Splash Screen -->
+        <!-- Texto siempre blanco en toda la app -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textColorSecondary">#A0A8C0</item>
+        <item name="android:editTextColor">#FFFFFF</item>
+        <item name="android:textColorHint">#3D3D5C</item>
+
+        <!-- Fondo oscuro en dropdowns de Spinner -->
+        <item name="android:popupBackground">#13131F</item>
+        <item name="android:dropDownListViewStyle">@style/DropdownOscuro</item>
+
+        <!-- Fondo general -->
+        <item name="android:windowBackground">#0D1117</item>
+
+        <!-- Colores Material3 en paleta oscura -->
+        <item name="colorPrimary">#6C63FF</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#29ABE2</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSurface">#13131F</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+
+    </style>
+
+    <!-- Dropdown oscuro para todos los Spinners -->
+    <style name="DropdownOscuro" parent="@android:style/Widget.ListView.DropDown">
+        <item name="android:background">#13131F</item>
+        <item name="android:divider">#1E1E35</item>
+        <item name="android:dividerHeight">1dp</item>
+    </style>
+
+    <!-- Splash -->
     <style name="Theme.InnovacodeProyecto1.Splash" parent="Theme.InnovacodeProyecto1">
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowNoTitle">true</item>

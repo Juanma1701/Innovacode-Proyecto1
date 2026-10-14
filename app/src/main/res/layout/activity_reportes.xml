@@ -260,6 +260,32 @@
                 android:textSize="15sp"
                 android:gravity="center"/>
         </LinearLayout>
+        <Button
+            android:id="@+id/btnVerGraficas"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:text="Ver Gráficas"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/fondo_boton_violeta"
+            android:stateListAnimator="@null"
+            android:drawableStart="@drawable/ic_reportes"
+            android:drawablePadding="8dp" />
+
+        <Button
+            android:id="@+id/btnExportar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:text="Exportar PDF / Excel"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:background="@drawable/fondo_boton_outline"
+            android:stateListAnimator="@null"
+            android:drawablePadding="8dp" />
 
     </LinearLayout>
 </ScrollView>

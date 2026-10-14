@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_tarjeta"
+    android:padding="20dp">
+
+    <!-- ── Producto ── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRODUCTO"
+        android:textColor="#A0A8C0"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/fondo_campo_dark"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerProductoIngrediente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:popupBackground="@drawable/fondo_tarjeta" />
+    </LinearLayout>
+
+    <!-- ── Cantidad ── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANTIDAD"
+        android:textColor="#A0A8C0"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/fondo_campo_dark"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/etCantidadIngrediente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Ej: 200"
+            android:textColorHint="#3D3D5C"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:inputType="numberDecimal"
+            android:background="@null"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <!-- ── Unidad ── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UNIDAD DE MEDIDA"
+        android:textColor="#A0A8C0"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/fondo_campo_dark"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerUnidadIngrediente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:popupBackground="@drawable/fondo_tarjeta"
+            android:entries="@array/unidades_medida" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -11,4 +11,24 @@
         <item>RUT</item>
     </string-array>
 
+    <string-array name="categorias_receta">
+        <item>Comida rápida</item>
+        <item>Bebidas</item>
+        <item>Postres</item>
+        <item>Entradas</item>
+        <item>Platos fuertes</item>
+        <item>Otros</item>
+    </string-array>
+
+    <string-array name="unidades_medida">
+        <item>und</item>
+        <item>g</item>
+        <item>kg</item>
+        <item>ml</item>
+        <item>L</item>
+        <item>taza</item>
+        <item>cucharada</item>
+        <item>cucharadita</item>
+    </string-array>
+
 </resources>

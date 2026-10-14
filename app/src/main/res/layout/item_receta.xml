@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/fondo_tarjeta"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp">
+
+    <!-- ── Nombre y categoría ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvNombreReceta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre receta"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCategoriaReceta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoría"
+            android:textColor="#6C63FF"
+            android:textSize="11sp"
+            android:background="@drawable/fondo_etiqueta_acento"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp" />
+    </LinearLayout>
+
+    <!-- ── Descripción ── -->
+    <TextView
+        android:id="@+id/tvDescripcionReceta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:textColor="#6B7280"
+        android:textSize="13sp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- ── Label ingredientes ── -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="INGREDIENTES"
+        android:textColor="#A0A8C0"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ── Lista de ingredientes ── -->
+    <LinearLayout
+        android:id="@+id/layoutIngredientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp" />
+
+    <!-- ── Botones ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/btnEditarReceta"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Editar"
+            android:textColor="#A0A8C0"
+            android:textSize="12sp"
+            android:background="@drawable/fondo_boton_outline"
+            android:stateListAnimator="@null"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginEnd="8dp" />
+
+        <Button
+            android:id="@+id/btnEliminarReceta"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="Eliminar"
+            android:textColor="#F87171"
+            android:textSize="12sp"
+            android:background="@drawable/fondo_boton_eliminar"
+            android:stateListAnimator="@null"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

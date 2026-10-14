@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -23,9 +24,9 @@
                 android:layout_height="36dp"
                 android:background="@drawable/ic_flecha_atras"
                 android:contentDescription="Volver"
+                android:layout_marginTop="10dp"
                 app:tint="#94A3B8" />
 
-            <!-- TÍTULO -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,7 +37,6 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="20dp"/>
 
-            <!-- FORMULARIO -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,18 +45,39 @@
                 android:padding="18dp"
                 android:elevation="8dp">
 
-                <!-- PRODUCTO -->
+                <!-- PRODUCTO + botón escáner -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="PRODUCTO"
                     style="@style/LabelStyle"/>
 
-                <Spinner
-                    android:id="@+id/spProductoVenta"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
+                    <Spinner
+                        android:id="@+id/spProductoVenta"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="10dp"/>
+
+                    <!-- Botón escáner para autoseleccionar producto -->
+                    <ImageButton
+                        android:id="@+id/btnEscanearVenta"
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:src="@drawable/ic_escaner"
+                        android:scaleType="fitCenter"
+                        android:padding="10dp"
+                        android:background="@drawable/fondo_boton_violeta"
+                        android:contentDescription="Escanear producto"
+                        android:pointerIcon="hand"/>
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -71,7 +92,6 @@
                     style="@style/InputStyle"
                     android:hint="Nombre del cliente" />
 
-                <!-- CANTIDAD -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -86,7 +106,6 @@
                     android:inputType="number"
                     android:hint="0"/>
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -100,7 +119,6 @@
                     style="@style/InputStyle"
                     android:inputType="numberDecimal"
                     android:hint="$0.00"/>
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -117,7 +135,6 @@
                     android:focusable="false"
                     android:clickable="true"/>
 
-                <!-- BOTÓN -->
                 <Button
                     android:id="@+id/btnRegistrarVenta"
                     android:layout_width="match_parent"
@@ -127,9 +144,10 @@
                     android:textStyle="bold"
                     android:background="@drawable/fondo_boton_violeta"
                     android:layout_marginTop="16dp"/>
+
             </LinearLayout>
 
-
+            <!-- FILTROS -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -143,7 +161,6 @@
                     android:layout_height="wrap_content"
                     android:text="Filtrar por producto: "
                     style="@style/LabelStyle"/>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -174,6 +191,7 @@
                     android:layout_height="wrap_content"
                     android:text="Filtrar por cliente"
                     style="@style/LabelStyle"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -203,6 +221,7 @@
                     android:layout_height="wrap_content"
                     android:text="Filtrar por fecha: "
                     style="@style/LabelStyle"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
@@ -228,7 +247,6 @@
 
             </LinearLayout>
 
-            <!-- LISTA -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvVentas"
                 android:layout_width="match_parent"
@@ -236,7 +254,6 @@
                 android:layout_marginTop="16dp"/>
 
         </LinearLayout>
-
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
