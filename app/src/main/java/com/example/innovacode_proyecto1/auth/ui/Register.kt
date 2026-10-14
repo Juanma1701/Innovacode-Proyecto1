@@ -87,7 +87,6 @@ class Register : AppCompatActivity() {
             override fun getView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
                 val vista = super.getView(position, convertView, parent)
                 val tv = vista.findViewById<TextView>(android.R.id.text1)
-                // Fondo oscuro para la vista cerrada del spinner
                 vista.setBackgroundColor(android.graphics.Color.parseColor("#0D0D1A"))
                 tv.setTextColor(
                     if (position == 0) android.graphics.Color.parseColor("#3D3D5C")
@@ -102,7 +101,6 @@ class Register : AppCompatActivity() {
             override fun getDropDownView(position: Int, convertView: View?, parent: android.view.ViewGroup): View {
                 val vista = super.getDropDownView(position, convertView, parent)
                 val tv = vista.findViewById<TextView>(android.R.id.text1)
-                // Fondo oscuro para cada ítem del dropdown
                 vista.setBackgroundColor(android.graphics.Color.parseColor("#13131F"))
                 tv.setTextColor(
                     if (position == 0) android.graphics.Color.parseColor("#3D3D5C")
@@ -178,6 +176,9 @@ class Register : AppCompatActivity() {
                     "numeroDocumento" to numDoc,
                     "telefono"        to telefono,
                     "correo"          to correo,
+                    "rol"             to "trabajador",
+                    "estado"          to "pendiente",
+                    "empresa_id"      to "empresa_demo",
                     "fechaRegistro"   to com.google.firebase.Timestamp.now()
                 )
 
@@ -185,8 +186,11 @@ class Register : AppCompatActivity() {
                     .document(uid)
                     .set(datosUsuario)
                     .addOnSuccessListener {
-                        Toast.makeText(this, "¡Cuenta creada exitosamente!", Toast.LENGTH_SHORT).show()
-                        // Ir al Login después del registro
+                        Toast.makeText(
+                            this,
+                            "¡Cuenta creada! Espera a que el administrador apruebe tu acceso.",
+                            Toast.LENGTH_LONG
+                        ).show()
                         val intent = Intent(this, Login::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(intent)

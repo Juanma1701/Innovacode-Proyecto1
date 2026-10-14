@@ -178,10 +178,56 @@ class Login : AppCompatActivity() {
         btnIniciarSesion.text = "Iniciando sesión..."
 
         auth.signInWithEmailAndPassword(correo, contrasena)
-            .addOnSuccessListener {
-                val intent = Intent(this, Dashboard::class.java)
-                startActivity(intent)
+            .addOnSuccessListener { resultado ->
+                val uid = resultado.user?.uid ?: return@addOnSuccessListener
 
+                db.collection("usuarios").document(uid).get()
+                    .addOnSuccessListener { doc ->
+                        val estado = doc.getString("estado")
+                        when (estado) {
+                            "activo" -> {
+                                val intent = Intent(this, Dashboard::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                            "pendiente" -> {
+                                auth.signOut()
+                                Toast.makeText(
+                                    this,
+                                    "Tu cuenta está pendiente de aprobación. Contacta al administrador.",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                btnIniciarSesion.isEnabled = true
+                                btnIniciarSesion.text = "Iniciar Sesión"
+                            }
+                            "inactivo" -> {
+                                auth.signOut()
+                                Toast.makeText(
+                                    this,
+                                    "Tu cuenta ha sido desactivada. Contacta al administrador.",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                btnIniciarSesion.isEnabled = true
+                                btnIniciarSesion.text = "Iniciar Sesión"
+                            }
+                            else -> {
+                                auth.signOut()
+                                Toast.makeText(
+                                    this,
+                                    "No tienes permiso para acceder.",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                btnIniciarSesion.isEnabled = true
+                                btnIniciarSesion.text = "Iniciar Sesión"
+                            }
+                        }
+                    }
+                    .addOnFailureListener {
+                        auth.signOut()
+                        Toast.makeText(this, "Error al verificar tu cuenta.", Toast.LENGTH_LONG).show()
+                        btnIniciarSesion.isEnabled = true
+                        btnIniciarSesion.text = "Iniciar Sesión"
+                    }
             }
             .addOnFailureListener { e ->
                 val mensaje = when {
